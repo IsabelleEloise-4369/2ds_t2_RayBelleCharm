@@ -6,6 +6,7 @@
     font-weight: 100;
     list-style: none;
     font-size: 1rem;
+    text-decoration: none;
 }
 
 body{
@@ -53,6 +54,7 @@ body{
 
 .header-container__menu nav ul.show {
     display: block;
+    margin-top: 0;
 }
 
 .header-container__menu nav ul li {
@@ -65,7 +67,11 @@ body{
 
 .menu-toggle {
     cursor: pointer;
-    padding: 15px 20px;
+}
+
+.menu-toggle.show {
+    cursor: pointer;
+    margin-top: 50px;
 }
 
 .menu-bar {
