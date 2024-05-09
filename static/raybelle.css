@@ -1,70 +1,107 @@
 /* ************************** padronização/ estilização CENTRO DA PÁGINA ************************** */
 
-.card-container {
-    position: relative;
-    z-index: -1;
-    top: 15rem;
-    display: grid;
-    grid-template-columns: 300px 300px 300px;
-    grid-template-rows: 300px 300px 300px;
-    align-content: center;
-    justify-items: center;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    display: flex; /* New line for centering */
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    min-height: 100vh; /* Set body to viewport height */
+    
+  }
+
+.container-principal{
+    display: block;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.grid-container{
+    margin-top: 27vh;
 }
-.row {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+
+.titulo-destaque h2{
+    font-size: 2rem;
+    font-weight: 600;
+    color: #C24616;
+    text-align: center;
 }
-.card {
+  
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 4rem;
+    width: fit-content; /* Adjust width as needed */
+    padding: 20px; /* Add some padding */
+    position: relative;
+    top: 1rem;
+    margin-bottom: 10rem;
+   
+  }
+  
+  .card {
     position: relative;
     width: 200px;
     height: 200px;
-    margin: 0 10px;
+    margin: 0;  /* Remove margin for grid layout */
     overflow: hidden;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease-in-out;
-}
-
-.card img {
+  }
+  
+  .card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: opacity 0.3s ease-in-out;
     border-radius: 50%;
-}
-.card:hover {
+  }
+  
+  .card:hover {
     transform: scale(1.1);
-}
-.card:hover img {
+  }
+  
+  .card:hover img {
     opacity: 0.7;
-}
-
-.card-container .card img {
+  }
+  
+  .card-container .card img {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    /* Adicione outros estilos de card (background-color, border, etc.) */
-}
-
-.card .text {
+  }
+  
+  .card .text {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.343);
     color: #fff;
     padding: 10px;
     box-sizing: border-box;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
+    
+  }
+
+  .texto {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
 }
-.card:hover .text {
+
+/* Adicionei a regra para fazer o texto aparecer quando o card é hover */
+.card:hover .texto {
     opacity: 1;
+}
+
+.newsletter{
+    margin-bottom: 40rem;
 }

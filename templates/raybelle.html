@@ -6,58 +6,82 @@
 
 {% extends "layout.html" %}
 {% block conteudo %}
+    
 
-<section class="cards">
-    <div class="card-container">
+<section class="container-principal">
+
+    <section class="grid-container">
+
+        <div class="titulo-destaque">
+            <h2>✧✦✧  PRODUTOS EM DESTAQUE ✧✦✧</h2>
+        </div>
+
+        <div class="card-container">
+    
+        <div class="card ">
+            <img src="/static/img/produtos-ouro/anel-ouro.jpg" alt="Image 1">
+            <div class="texto">Card 1</div> <!-- Adicionei a classe "texto" aqui -->
+        </div>
+    
+        <div class="card">
+            <img src="/static/img/produtos-prata/bracelete-prata.jpg" alt="Image 2">
+            <div class="texto">Card 2</div> <!-- Adicionei a classe "texto" aqui -->
+        </div>
+    
+        <div class="card">
+            <img src="/static/img/produtos-ouro/gargantilha-ouro.jpg" alt="Image 1">
+            <div class="texto">Card 3</div> <!-- Adicionei a classe "texto" aqui -->
+        </div>
+    
+        <div class="card ">
+            <img src="/static/img/produtos-prata/conjunto-prata.jpg" alt="Image 4">
+            <div class="texto">Card 4</div> <!-- Adicionei a classe "texto" aqui -->
+        </div>
+    
+        <div class="card">
+            <img src="/static/img/produtos-ouro/brinco-ouro.jpg" alt="Image 5">
+            <div class="texto">Card 5</div> <!-- Adicionei a classe "texto" aqui -->
+        </div>
+    
+        <div class="card">
+            <img src="/static/img/produtos-ouro/bracelete-ouro2.jpg" alt="Image 6">
+            <div class="texto">Card 6</div> <!-- Adicionei a classe "texto" aqui -->
+        </div>
 
         <div class="card">
-            <img src="https://via.placeholder.com/200" alt="Image 1">
-            <div class="text">Card 1</div>
+            <img src="/static/img/produtos-prata/anel-prata2.jpg" alt="Image 7">
+            <div class="texto">Card 7</div> <!-- Adicionei a classe "texto" aqui -->
         </div>
     
         <div class="card">
-            <img src="https://via.placeholder.com/200" alt="Image 2">
-            <div class="text">Card 2</div>
+            <img src="/static/img/produtos-ouro/conjunto-ouro.jpg" alt="Image 8">
+            <div class="texto">Card 8</div> <!-- Adicionei a classe "texto" aqui -->
         </div>
     
         <div class="card">
-            <img src="https://via.placeholder.com/200" alt="Image 1">
-            <div class="text">Card 3</div>
+            <img src="/static/img/produtos-prata/Brinco-prata.jpg" alt="Image 9">
+            <div class="texto">Card 9</div> <!-- Adicionei a classe "texto" aqui -->
         </div>
     
-        <div class="card">
-            <img src="https://via.placeholder.com/200" alt="Image 1">
-            <div class="text">Card 4</div>
         </div>
-    
-        <div class="card">
-            <img src="https://via.placeholder.com/200" alt="Image 1">
-            <div class="text">Card 5</div>
+    </section>
+
+    <section class="container-informacoes">
+        <div class="newsletter">
+            <h6>Newsletter</h6>
+            <p>Inscreva-se para receber as novidades</p>
+
+            <form method="post" action="/cadastro">
+
+                <input type="text" id="name" placeholder="Nome Completo">
+                <input type="text" id="email" placeholder="Email">
+                <button type="submit">Enviar</button>
+            </form>
         </div>
-    
-        <div class="card">
-            <img src="https://via.placeholder.com/200" alt="Image 1">
-            <div class="text">Card 6</div>
-        </div>
-    
-        <div class="card">
-            <img src="https://via.placeholder.com/200" alt="Image 1">
-            <div class="text">Card 7</div>
-        </div>
-    
-        <div class="card">
-            <img src="https://via.placeholder.com/200" alt="Image 1">
-            <div class="text">Card 8</div>
-        </div>
-    
-        <div class="card">
-            <img src="https://via.placeholder.com/200" alt="Image 1">
-            <div class="text">Card 9</div>
-        </div>
-    
-    </div>     
+    </section>
+  
+  
 </section>
-
 
    
 {% endblock %}
