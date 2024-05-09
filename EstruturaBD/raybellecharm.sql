@@ -25,6 +25,7 @@ CREATE TABLE tb_produto(
     descricao VARCHAR (200) NOT NULL
 );
 
+
 -- criação da tabela tb_carrinho e seus atributos
 CREATE TABLE tb_carrinho(
     id_carrinho INT PRIMARY KEY AUTO_INCREMENT,
@@ -32,6 +33,7 @@ CREATE TABLE tb_carrinho(
     cpf_cliente NUMERIC NOT NULL,
     id_prod NUMERIC NOT NULL
 );
+
 
 -- criação da tabela tb_comentario e seus atributos
 CREATE TABLE tb_comentario(
