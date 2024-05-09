@@ -42,3 +42,9 @@ CREATE TABLE tb_comentario(
     cod_avaliacao NUMERIC PRIMARY KEY,
     id_produto NUMERIC NOT NULL
 );
+
+CREATE USER 'usuario_raybelle'@'%' INDENTIFIED BY'raybelle';
+
+GRANT ALL PRIVILEGES ON raybellecharm.* TO 'usuario_raybelle'@'%' WHIT GRANT OPTION;
+
+FLUSH PRIVILEGES;
