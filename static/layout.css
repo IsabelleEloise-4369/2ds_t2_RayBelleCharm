@@ -7,11 +7,10 @@
     list-style: none;
     font-size: 1rem;
     text-decoration: none;
-    list-style-type: none;
 }
 
 body{
-    background-color: #E8D3B6;
+    background-color: #E8D3B6;  
 }
 
 /* ****************************** padronização/ estilização MENU ************************************ */
@@ -20,11 +19,13 @@ body{
     height: 25vh;
     background-color: #30503A;
     display: flex;
-    align-items: center;
     justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    
+    align-items: center;
+    color: #E8D3B6;
+    gap: 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .header-container img{
@@ -60,11 +61,6 @@ body{
     padding: 10px 20px;
 }
 
-.header-container__menu nav ul li a{
-    list-style-type: none;
-    color: #E8D3B6;
-}
-
 .header-container__menu__itens{
     cursor: pointer;
 }
@@ -88,11 +84,24 @@ body{
 .header-container__carrinho img{
     width: 2rem;
     cursor: pointer;
-    border-radius: 20;
-}
-
-.header-container__carrinho img{
     border-radius: 0;
 }
 
-/* ***************************************************************************************************** */
+/* ************************************************************************************************************ */
+
+
+
+/* ****************************** padronização/ estilização RODAPÉ ************************************ */
+footer{
+    width: 100vw;
+    height: 10vh;
+    background-color: #30503A;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    color: #E8D3B6;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
