@@ -61,6 +61,12 @@ body{
     padding: 10px 20px;
 }
 
+.header-container__menu nav ul li a {
+    text-decoration: none;
+    color: #E8D3B6;
+    font-size: 1rem;
+}
+
 .header-container__menu__itens{
     cursor: pointer;
 }
