@@ -30,8 +30,4 @@ def pagina_ouro():
 def pagina_prata():
     return render_template("prata-raybelle.html")
 
-@app.route("/todos_prod")
-def pagina_todos_prod():
-    return render_template("todosProd-raybelle.html")
-
 app.run(debug=True)
