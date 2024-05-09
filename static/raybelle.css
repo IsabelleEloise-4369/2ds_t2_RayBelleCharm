@@ -1,98 +1,107 @@
-*{
-    padding: 0;
+/* ************************** padronização/ estilização CENTRO DA PÁGINA ************************** */
+
+body {
     margin: 0;
-    box-sizing: border-box;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 100;
-    list-style: none;
-    font-size: 1rem;
-    text-decoration: none;
-    list-style-type: none;
-}
-
-body{
-    background-color: #E8D3B6;
-}
-
-/* ****************************** padronização/ estilização MENU ************************************ */
-.header-container{
-    width: 100vw;
-    height: 25vh;
-    background-color: #30503A;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
+    padding: 0;
+    font-family: sans-serif;
+    display: flex; /* New line for centering */
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    min-height: 100vh; /* Set body to viewport height */
     
+  }
+
+.container-principal{
+    display: block;
 }
 
-.header-container img{
-    max-width: 8rem;
-    max-height: 8rem;
-    border-radius: 100%;
+.grid-container{
+    margin-top: 27vh;
 }
 
-.header-container__nome{
-    /* width: 30rem; */
-    height: 2rem;
+.titulo-destaque h2{
+    font-size: 2rem;
+    font-weight: 600;
+    color: #C24616;
     text-align: center;
 }
+  
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 4rem;
+    width: fit-content; /* Adjust width as needed */
+    padding: 20px; /* Add some padding */
+    position: relative;
+    top: 1rem;
+    margin-bottom: 10rem;
+   
+  }
+  
+  .card {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0;  /* Remove margin for grid layout */
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 50%;
+  }
+  
+  .card:hover {
+    transform: scale(1.1);
+  }
+  
+  .card:hover img {
+    opacity: 0.7;
+  }
+  
+  .card-container .card img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+  
+  .card .text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.343);
+    color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    
+  }
 
-.header-container__menu {
-    background-color: #30503A;
-    color: #E8D3B6;
+  .texto {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
 }
 
-.header-container__menu nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: none;
+/* Adicionei a regra para fazer o texto aparecer quando o card é hover */
+.card:hover .texto {
+    opacity: 1;
 }
 
-.header-container__menu nav ul.show {
-    display: block;
-    margin-top: 0;
+.newsletter{
+    margin-bottom: 40rem;
 }
-
-.header-container__menu nav ul li {
-    padding: 10px 20px;
-}
-
-.header-container__menu nav ul li a{
-    list-style-type: none;
-    color: #E8D3B6;
-}
-
-.header-container__menu__itens{
-    cursor: pointer;
-}
-
-.menu-toggle {
-    cursor: pointer;
-}
-
-.menu-toggle.show {
-    cursor: pointer;
-    margin-top: 50px;
-}
-
-.menu-bar {
-    width: 25px;
-    height: 3px;
-    background-color: #E8D3B6;
-    margin: 5px 0;
-}
-
-.header-container__carrinho img{
-    width: 2rem;
-    cursor: pointer;
-    border-radius: 20;
-}
-
-.header-container__carrinho img{
-    border-radius: 0;
-}
-
-/* ***************************************************************************************************** */

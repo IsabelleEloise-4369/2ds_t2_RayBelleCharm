@@ -25,7 +25,7 @@ O site foi construído utilizando as seguintes tecnologias:
 
 Se você tiver alguma dúvida, sugestão ou problema com relação ao projeto, sinta-se à vontade para entrar em contato com os desenvolvedores:
 
-- Isabelle Eloise Rugno Ferreira: [email@example.com](isabelle.eloise4369@gmail.com)
-- Jheniffer Rayane de Andrade: [email@example.com](jheniffer.andrade4325@gmail.com)
+- Isabelle Eloise Rugno Ferreira:(isabelle.eloise4369@gmail.com)
+- Jheniffer Rayane de Andrade: (jheniffer.andrade4325@gmail.com)
 
 Estamos sempre abertos para feedback e colaboração!
