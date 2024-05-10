@@ -44,6 +44,7 @@ body{
 .header-container__menu {
     background-color: #30503A;
     color: #E8D3B6;
+    opacity: 0.9;
 }
 
 .header-container__menu nav ul {
@@ -55,7 +56,7 @@ body{
 
 .header-container__menu nav ul.show {
     display: block;
-    margin-top: 0;
+    margin-top: 20vh;
 }
 
 .header-container__menu nav ul li {
