@@ -1,9 +1,30 @@
 .cadastro-container__form{
-    background-color: rgb(222, 233, 233);
-    width: 50%;
+    background-color: #cd8c00a6;
+    width: 60%;
     height: 50%;
-    color: black;
+    color: #E8D3B6;
     margin-top: 28vh;
     margin-left: auto;
     margin-right: auto;
+}
+
+.cadastro-container__form form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+}
+
+.cadastro-container__form__itens{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.cadastro-container__form__itens .cadastro-container__form__input{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
