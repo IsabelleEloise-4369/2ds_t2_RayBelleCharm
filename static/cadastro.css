@@ -1,7 +1,7 @@
 .cadastro-container__form{
     background-color: #cd8c00a6;
     width: 60%;
-    height: 50%;
+    height: 60%;
     color: #E8D3B6;
     margin-top: 28vh;
     margin-left: auto;
@@ -25,6 +25,24 @@
 
 .cadastro-container__form__itens .cadastro-container__form__input{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
+    flex-direction: column;
+}
+
+.cadastro-container__form__itens .cadastro-container__form__input input{
+    background-color: #CD8D00;
+    border: 0.2rem solid #CD8D00;
+    font-size: 1rem;
+}
+
+.cadastro-container__form button{
+    background-color: #CD8D00;
+    border: 0.2rem solid #CD8D00;
+    color: #E8D3B6;
+    padding: 0.5rem;
+    align-self: flex-end;
+    margin-right: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
 }
