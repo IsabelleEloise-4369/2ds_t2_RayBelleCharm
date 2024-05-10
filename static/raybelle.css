@@ -12,7 +12,10 @@ body {
   }
 
 .container-principal{
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
 
 .grid-container{
@@ -35,7 +38,7 @@ body {
     padding: 20px; /* Add some padding */
     position: relative;
     top: 1rem;
-    margin-bottom: 10rem;
+    margin-bottom: 5rem;
    
   }
   
@@ -95,6 +98,7 @@ body {
     color: white;
     font-size: 24px;
     font-weight: 700;
+    text-align: center ;
 }
 
 /* Adicionei a regra para fazer o texto aparecer quando o card é hover */
@@ -102,6 +106,67 @@ body {
     opacity: 1;
 }
 
-.newsletter{
-    margin-bottom: 40rem;
+
+
+.mais-informacoes{
+  color: black;
+  margin-bottom: 10rem;
 }
+
+.container-informacoes{
+  display: flex;
+  justify-content: space-around;
+  background-color: #c2471691;
+  padding: 2rem;
+}
+
+h6{
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #E8D3B6;
+  padding: 1rem;
+}
+
+p{
+  color: #fff;
+  padding: 1rem;
+}
+
+.newsletter{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+button{
+  border-radius: 10rem;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  text-align: center;
+  background-color: #673024;
+  color: #fff;
+  border: 3px solid rgb(255, 255, 255);
+  margin: 20px;
+}
+
+button:hover{
+  background-color: #C24616;
+  cursor: pointer;
+  border: 0.3rem dashed rgb(255, 255, 255);
+  font-size: 1rem;
+  transition: font-size 0.2s ease-in-out;
+  color: rgb(255, 255, 255);
+  border-radius: 3rem;
+}
+
+input{
+  width: 20rem;
+  height: 2rem;
+  border-radius: 2rem;
+  text-align: center;
+  color: #fff;
+  background-color: #c2471691;
+  margin: 0.5rem;
+  border: #673024;
+}
+
