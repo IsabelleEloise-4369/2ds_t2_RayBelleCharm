@@ -1,3 +1,30 @@
+<!-- EXTENDENDO O CSS DA PAGINA PRINCIPAL (LAYOUT) -->
+{% block css %}
+<link rel="stylesheet" href="/static/ouro.css">
+{% endblock %}
+
+
+<section class="produtos-ouro">
+
+    <div class="grid-container__ouro">
+
+        <div class="titulo-ouro">
+            <h2>✧✦✧  PRODUTOS OURO ✧✦✧</h2>
+        </div>
+
+        <div class="card-container__ouro">
+
+            <div class="card-ouro">
+                <img src="/static/img/produtos-ouro/anel-ouro.jpg" alt="Image 1">
+                <div class="texto">Anel de Ouro cravejado</div> <!-- Adicionei a classe "texto" aqui -->
+            </div>
+
+
+        </div>
+
+
+    </div>
+</section>
 {% extends "layout.html" %}
 {% block conteudo %}
 
