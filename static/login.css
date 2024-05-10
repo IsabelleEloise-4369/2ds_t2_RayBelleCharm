@@ -26,5 +26,42 @@
 }
 
 input{
+    width: 20rem;
+    height: 2rem;
+    border-radius: 2rem;
+    text-align: center;
+    color: #E8D3B6;
+    background-color: #c2471691;
+    margin: 0.5rem;
+    border: #673024;
     display: flex;
+}
+
+.login-container__form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.login-container__form form button{
+    border-radius: 10rem;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    text-align: center;
+    background-color: #673024;
+    color: #fff;
+    border: 3px solid rgb(255, 255, 255);
+    margin-left: auto;
+    margin-right: auto;
+    width: 8rem;
+    height: 3rem;
+    align-self: center;
+  }
+
+.login-container__form form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
