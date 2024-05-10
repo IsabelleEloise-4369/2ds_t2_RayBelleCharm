@@ -43,8 +43,8 @@ CREATE TABLE tb_comentario(
     id_produto NUMERIC NOT NULL
 );
 
-CREATE USER 'usuario_raybelle'@'%' INDENTIFIED BY'raybelle';
+CREATE USER 'usuario_raybelle'@'%' IDENTIFIED BY 'raybelle';
 
-GRANT ALL PRIVILEGES ON raybellecharm.* TO 'usuario_raybelle'@'%' WHIT GRANT OPTION;
+GRANT ALL PRIVILEGES ON raybellecharm.* TO 'usuario_raybelle'@'%' WITH GRANT OPTION;
 
 FLUSH PRIVILEGES;
