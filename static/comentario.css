@@ -1,0 +1,13 @@
+.container-comentario{
+    margin-top: 26vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-comentario form{
+    display: flex;
+    width: 50%;
+    height: 50%;
+    flex-direction: column;
+}
