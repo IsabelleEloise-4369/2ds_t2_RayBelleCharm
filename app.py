@@ -8,10 +8,13 @@ app.secret_key = 'raybelle'
 
 #roteamento da página
 @app.route("/")
+#função da página inicial
 def pagina_inicial():
     return render_template("raybelle.html")
 
+#roteamento da página cadastro
 @app.route("/cadastro", methods=["GET", "POST"])
+#função da página de caadastro
 def pagina_cadastro():
     if request.method == "GET":
         return render_template("cadastro-raybelle.html")
@@ -37,19 +40,41 @@ def pagina_cadastro():
             return "Erro ao cadastrar o usuário."
 
 
-@app.route("/login")
-def pagina_logn():
-    return render_template("login-raybelle.html")
+#roteamento da página login
+@app.route("/login", methods=["GET", "POST"])
+#função da página de login
+def pagina_login():
+    if request.method == "GET":
+        return render_template("login-raybelle.html")
+    if request.method == "POST":
+        email = request.form['email']
+        senha = request.form['senha']
 
-@app.route("/comentario")
-def pagina_comentaio():
+        usuario = Usuario()
+        usuario.logar(email, senha)
+        if usuario.logado:
+            session['usuario_logado'] = {'email':usuario.email,
+                                         'senha':usuario.senha}
+            return redirect('/comentario')
+        else:
+            session.clear()
+            return 'Email ou senha incorretos.'
+
+#roteamento da página comentário
+@app.route("/comentario", methods=["GET", "POST"])
+#função da página de comentário
+def pagina_comentario():
     return render_template("comentario-raybelle.html")
 
+#roteamento da página de produtos ouro
 @app.route("/ouro")
+#função da página de produtos apenas de ouro
 def pagina_ouro():
     return render_template("ouro-raybelle.html")
 
+#roteamento da página de produtos prata
 @app.route("/prata")
+#função da página de produtos apenas de prata
 def pagina_prata():
     return render_template("prata-raybelle.html")
 

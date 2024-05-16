@@ -1,17 +1,17 @@
 -- criando o banco de dados
-CREATE DATABASE raybellecharm
+CREATE DATABASE raybellecharm;
 -- usando o banco de dados
 USE raybellecharm;
 
 -- criação da tabela tb_cliente e seus atributos
 CREATE TABLE tb_cliente(
 	nome VARCHAR (100) NOT NULL,
-    cpf NUMERIC PRIMARY KEY,
+    cpf VARCHAR(11) PRIMARY KEY,
     email VARCHAR (100) NOT NULL,
-    telefone NUMERIC NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
     senha VARCHAR (100) NOT NULL,
     endereco_rua VARCHAR (100) NOT NULL,
-    endereco_numero NUMERIC NOT NULL,
+    endereco_numero VARCHAR(200) NOT NULL,
     estado VARCHAR (50) NOT NULL,
     cidade VARCHAR (50) NOT NULL
 );
@@ -21,23 +21,21 @@ CREATE TABLE tb_produto(
 	cod_prod NUMERIC PRIMARY KEY,
     nome_prod VARCHAR (100) NOT NULL,
     preco FLOAT NOT NULL,
-    foto VARCHAR (200) NOT NULL,
-    descricao VARCHAR (200) NOT NULL
+    foto VARCHAR (255) NOT NULL,
+    descricao VARCHAR (200) NOT NULL,
+    categoria VARCHAR (200) NOT NULL
 );
-
-
 -- criação da tabela tb_carrinho e seus atributos
 CREATE TABLE tb_carrinho(
     id_carrinho INT PRIMARY KEY AUTO_INCREMENT,
-	quantidade NUMERIC NOT NULL,
-    cpf_cliente NUMERIC NOT NULL,
+	quantidade INT NOT NULL,
+    cpf_cliente VARCHAR(11) NOT NULL,
     id_prod NUMERIC NOT NULL
 );
 
-
 -- criação da tabela tb_comentario e seus atributos
 CREATE TABLE tb_comentario(
-	cpf_cliente VARCHAR (200) NOT NULL,
+	cpf_cliente VARCHAR (11) NOT NULL,
     avaliacao VARCHAR (200) NOT NULL,
     cod_avaliacao NUMERIC PRIMARY KEY,
     id_produto NUMERIC NOT NULL

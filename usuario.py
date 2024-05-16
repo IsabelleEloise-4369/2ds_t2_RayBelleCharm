@@ -38,3 +38,28 @@ class Usuario:
 
         # except:
             # return False
+
+    def logar (self, email, senha):
+        #criptografar a senha
+        senha = sha256(senha.encode()).hexdigest()
+
+        mydb = Conexao.conectar()
+
+        mycursor = mydb.cursor()
+
+        #pesquisar no banco se existe esse telefone e a senha
+        dados = f" SELECT * FROM raybellecharm.tb_cliente WHERE email = '{email}' AND senha = '{senha}'"   
+
+        mycursor.execute(dados)
+        
+        resultado = mycursor.fetchone()
+
+        #se encontrou um usuário com esses dados
+        if not resultado == None: 
+            self.logado = True
+            self.email = resultado[2]
+            self.senha = resultado[4]
+        else: 
+            self.logado = False
+              
+        mydb.commit() 

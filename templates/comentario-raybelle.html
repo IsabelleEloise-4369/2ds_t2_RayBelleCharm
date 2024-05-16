@@ -1,4 +1,13 @@
+{% block css %}
+<link rel="stylesheet" href="/static/comentario.css">
+{% endblock %}
+
 {% extends "layout.html" %}
 {% block conteudo %}
-
+<section class="container-comentario">
+    <form action="/comentario" method="POST">
+        <label for="comentario">Escreva a baixo um comentário sobre a jóia que mudou a sua vida:</label>
+        <textarea id="comentario" cols="50" rows="10"></textarea>
+    </form>
+</section>
 {% endblock %}
