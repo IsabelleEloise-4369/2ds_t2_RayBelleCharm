@@ -55,7 +55,7 @@ def pagina_login():
         if usuario.logado:
             session['usuario_logado'] = {'email':usuario.email,
                                          'senha':usuario.senha}
-            return redirect('/comentario')
+            return redirect('/')
         else:
             session.clear()
             return 'Email ou senha incorretos.'
@@ -64,7 +64,10 @@ def pagina_login():
 @app.route("/comentario", methods=["GET", "POST"])
 #função da página de comentário
 def pagina_comentario():
-    return render_template("comentario-raybelle.html")
+    if "usuario_logado" in session:
+        return render_template("comentario-raybelle.html")
+    else:
+        return redirect("/cadastro")
 
 #roteamento da página de produtos ouro
 @app.route("/ouro")
