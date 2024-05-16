@@ -85,3 +85,19 @@ button:hover{
     align-items: center;
     justify-content: space-around;
 }
+
+.depoimentos{
+    background-color: #673024;
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+    margin-bottom: 4rem;
+}
+
+a{
+    color: wheat;
+    background-color: #C24616;
+    padding: 10px;
+    border-radius: 15px;
+}
+  
