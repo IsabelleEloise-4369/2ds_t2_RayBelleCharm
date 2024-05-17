@@ -5,9 +5,17 @@
 {% extends "layout.html" %}
 {% block conteudo %}
 <section class="container-comentario">
+
+    <div class="titulo-comentario">
+        <h2> COMENTÁRIOS </h2>
+    </div>
+
+
     <form action="/comentario" method="POST">
-        <label for="comentario">Escreva a baixo um comentário sobre a jóia que mudou a sua vida:</label>
+        <label for="comentario">Escreva abaixo um comentário sobre a joia que mudou a sua vida:</label>
         <textarea id="comentario" cols="50" rows="10"></textarea>
+
+        <a href="/">Enviar Comentário</a>
     </form>
 </section>
 {% endblock %}
