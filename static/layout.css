@@ -97,6 +97,75 @@ body{
 /* ************************************************************************************************************ */
 
 
+/* ****************************** padronização/ estilização SERVIÇOS ************************************ */
+
+.servicos-inicial{
+    margin-bottom: 4rem;
+    background-image: linear-gradient(to right, #cd8c00ca, #CD8D00, #7f5907 );
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .servicos{
+    display: flex;
+    align-items: center;
+  }
+  
+  .servicos img{
+    width: 3rem;
+    height: 3rem;
+    margin: 0 0 0 1rem;
+  }
+  
+  .servicos-texto{
+    align-items: center;
+    text-align: center;
+    margin: 1rem;
+  }
+  .servicos-texto h6{
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffd988;
+  }
+  
+  .servicos-texto p{
+    color: #fff;
+  }
+  
+/* ************************************************************************************************************ */
+
+/* ****************************** padronização/ estilização FRETE ************************************ */
+
+.frete{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: fixed;
+    top: 165;
+    left: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 10vh;
+}
+
+.frete-gratis{
+    background-image: linear-gradient(to right, #cd8c00ca, #CD8D00, #7f5907 );
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.frete-gratis h6{
+    color: #fff;
+    font-size: 1rem;
+}
+
 /* ****************************** padronização/ estilização RODAPÉ ************************************ */
 footer{
     width: 100vw;
