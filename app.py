@@ -1,5 +1,6 @@
 from flask import Flask , render_template, request, redirect, session, jsonify
 from usuario import Usuario
+from conexao import Conexao
 
 #app é o servidor
 #criei o objeto app usando a classe Flask
@@ -67,13 +68,27 @@ def pagina_comentario():
     if "usuario_logado" in session:
         return render_template("comentario-raybelle.html")
     else:
-        return redirect("/cadastro")
+        return redirect("/login")
 
 #roteamento da página de produtos ouro
 @app.route("/ouro")
 #função da página de produtos apenas de ouro
 def pagina_ouro():
-    return render_template("ouro-raybelle.html")
+    # conectando o banco de dados
+    mydb = Conexao.conectar()
+
+    mycursor = mydb.cursor()
+    # Consulta ao banco de dados para obter os produtos da categoria "ouro"
+    produtos_ouro = ("SELECT * FROM tb_produto WHERE categoria = 'ouro'")
+
+    #executar
+    mycursor.execute(produtos_ouro)
+
+    resultado = mycursor.fetchall()
+
+    mydb.close()
+    
+    return render_template("ouro-raybelle.html", produtos=produtos_ouro)
 
 #roteamento da página de produtos prata
 @app.route("/prata")
