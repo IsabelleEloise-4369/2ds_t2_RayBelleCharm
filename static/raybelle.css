@@ -27,6 +27,7 @@ body {
     font-weight: 600;
     color: #C24616;
     text-align: center;
+    margin-top: 2rem;
 }
   
   .card-container {
@@ -110,13 +111,13 @@ body {
 
 .mais-informacoes{
   color: black;
-  margin-bottom: 10rem;
+  margin:1rem 1rem 10rem 2rem;
 }
 
 .container-informacoes{
   display: flex;
   justify-content: space-around;
-  background-color: #c2471691;
+  background-image: linear-gradient(to right, #b54e259e, #c75426, #cd8c00ca);
   padding: 2rem;
 }
 
@@ -168,5 +169,16 @@ input{
   background-color: #c2471691;
   margin: 0.5rem;
   border: #673024;
+}
+
+.contato-itens{
+  display: flex;
+  align-items: center;
+}
+
+.contato-itens img{
+  width: 2rem;
+  height: 2rem;
+  margin: 0 0 0 1rem;
 }
 

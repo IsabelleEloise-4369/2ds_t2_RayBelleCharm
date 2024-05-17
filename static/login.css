@@ -65,3 +65,8 @@ input{
     flex-direction: column;
     justify-content: center;
 }
+
+.login-container__form a{
+    margin-bottom: 5rem;
+    font-size: 1rem;
+}
