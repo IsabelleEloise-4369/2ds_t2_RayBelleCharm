@@ -17,16 +17,16 @@
         <div class="card-container__ouro">
 
             <div class="card-ouro-itens">
-                
+                {% for produto in lista_produtos%}
                 <div class="card-ouro">
-                    <img src="/static/img/produtos-ouro/bracelete-ouro.jpg" alt="Image 1">
+                    <img src="{{produto['foto']}}" alt="Image 1">
                 </div>
                 <div class="texto">
-                    <h2><!--aqui ficará a descrição do produto--></h2>
-                    <h2><!--aqui ficará o preço do produto--></h2>
+                    <h2>{{produto['descricao']}}</h2>
+                    <h2>R$ {{produto['preco']}}.</h2>       
                 </div>
                 <button type="submit"> Comprar </button>
-                
+                {%endfor%}
             </div>
             
         </div>

@@ -79,7 +79,7 @@ def pagina_ouro():
 
     mycursor = mydb.cursor()
     # Consulta ao banco de dados para obter os produtos da categoria "ouro"
-    produtos_ouro = ("SELECT * FROM tb_produto WHERE categoria = 'ouro'")
+    produtos_ouro = ("SELECT preco, foto, descricao, categoria FROM tb_produto WHERE categoria = 'ouro'")
 
     #executar
     mycursor.execute(produtos_ouro)
@@ -87,8 +87,19 @@ def pagina_ouro():
     resultado = mycursor.fetchall()
 
     mydb.close()
+
+    lista_produtos = []
     
-    return render_template("ouro-raybelle.html", produtos=produtos_ouro)
+    for produto in resultado:
+        lista_produtos.append({
+            "preco":produto[0],
+            "foto":produto[1],
+            "descricao":produto[2],
+            "categoria":produto[3],
+        })
+    return (lista_produtos)
+    
+    # return render_template("ouro-raybelle.html", produtos=produtos_ouro)
 
 #roteamento da página de produtos prata
 @app.route("/prata")
