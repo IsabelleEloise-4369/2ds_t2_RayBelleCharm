@@ -24,7 +24,7 @@ body{
     color: #E8D3B6;
     gap: 2rem;
     position: fixed;
-    top: 0;
+    top: 30;
     left: 0;
     z-index: 1;
 }
@@ -44,8 +44,8 @@ body{
 .header-container__menu {
     background-color: #30503A;
     color: #E8D3B6;
+    opacity: 0.9;
 }
-
 .header-container__menu nav ul {
     list-style: none;
     padding: 0;
@@ -55,7 +55,7 @@ body{
 
 .header-container__menu nav ul.show {
     display: block;
-    margin-top: 0;
+    
 }
 
 .header-container__menu nav ul li {
@@ -95,6 +95,33 @@ body{
 }
 
 /* ************************************************************************************************************ */
+
+
+/* ****************************** padronização/ estilização FRETE ************************************ */
+
+.frete{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 10vh;
+}
+
+.frete-gratis{
+    background-image: linear-gradient(to right, #cd8c00ca, #CD8D00, #7f5907 );
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.frete-gratis h6{
+    color: #fff;
+    font-size: 1rem;
+}
+
 
 
 /* ****************************** padronização/ estilização SERVIÇOS ************************************ */
@@ -141,30 +168,6 @@ body{
   
 /* ************************************************************************************************************ */
 
-/* ****************************** padronização/ estilização FRETE ************************************ */
-
-.frete{
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: fixed;
-    top: 165;
-    left: 0;
-    z-index: 1;
-    width: 100vw;
-    height: 10vh;
-}
-
-.frete-gratis{
-    background-image: linear-gradient(to right, #cd8c00ca, #CD8D00, #7f5907 );
-    width: 100%;
-    padding: 0.5rem;
-}
-
-.frete-gratis h6{
-    color: #fff;
-    font-size: 1rem;
-}
 
 /* ****************************** padronização/ estilização RODAPÉ ************************************ */
 footer{
