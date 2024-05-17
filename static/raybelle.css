@@ -119,16 +119,18 @@ body {
   justify-content: space-around;
   background-image: linear-gradient(to right, #b54e259e, #c75426, #cd8c00ca);
   padding: 2rem;
+  margin-bottom: 8rem;
+  height: 25rem;
 }
 
-h6{
+.container-informacoes h6{
   font-size: 1.2rem;
   font-weight: 600;
   color: #E8D3B6;
   padding: 1rem;
 }
 
-p{
+.container-informacoes p{
   color: #fff;
   padding: 1rem;
 }
