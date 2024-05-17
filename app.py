@@ -1,4 +1,4 @@
-from flask import Flask , render_template, request, redirect, session, jsonify
+from flask import Flask, render_template, request, redirect, session, jsonify
 from usuario import Usuario
 
 #app é o servidor
