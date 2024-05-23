@@ -1,8 +1,9 @@
 .login{
-    margin-top: 30vh;
+    margin-top: 33vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 5vw;
 }
 
 .login h2{

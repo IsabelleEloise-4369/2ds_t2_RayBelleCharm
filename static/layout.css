@@ -127,10 +127,10 @@ body{
 /* ****************************** padronização/ estilização SERVIÇOS ************************************ */
 
 .servicos-inicial{
-    margin-bottom: 4rem;
+    margin-bottom: 2.8rem;
     background-image: linear-gradient(to right, #cd8c00ca, #CD8D00, #7f5907 );
     width: 100vw;
-    height: 10vh;
+    height: 7vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -138,6 +138,7 @@ body{
     bottom: 0;
     left: 0;
     z-index: 1;
+
   }
   
   .servicos{
@@ -146,8 +147,8 @@ body{
   }
   
   .servicos img{
-    width: 3rem;
-    height: 3rem;
+    width: 2.4rem;
+    height: 2.4rem;
     margin: 0 0 0 1rem;
   }
   
@@ -172,7 +173,7 @@ body{
 /* ****************************** padronização/ estilização RODAPÉ ************************************ */
 footer{
     width: 100vw;
-    height: 10vh;
+    height: 6vh;
     background-color: #30503A;
     position: fixed;
     bottom: 0;
