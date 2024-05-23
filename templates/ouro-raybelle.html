@@ -3,102 +3,29 @@
 <link rel="stylesheet" href="/static/ouro.css">
 {% endblock %}
 
+{% extends "layout.html" %}
+{% block conteudo %}
 
 <section class="produtos-ouro">
-
     <div class="grid-container__ouro">
-
         <div class="titulo-ouro">
             <h2> ✧ PRODUTOS OURO ✧</h2>
         </div>
-
         <div class="card-container__ouro">
-
+            {% for produto in lista_produtos %}
             <div class="card-ouro-itens">
                 <div class="card-ouro">
-                    <img src="/static/img/produtos-ouro/bracelete-ouro.jpg" alt="Image 1">
+                    <img src="{{ produto['foto'] }}" alt="{{ produto['descricao'] }}">
                 </div>
-                <div class="texto">Bracelete de Ouro </div>
-                <button type="submit"> Comprar </button>
-
-            </div>
-
-            <div class="card-ouro-itens">
-                <div class="card-ouro">
-                    <img src="/static/img/produtos-ouro/anel-ouro.jpg" alt="Image 1">
+                <div class="texto">
+                    <h2>{{ produto['descricao'] }}</h2>
+                    <br>
+                    <h2>R$ {{ produto['preco'] }}</h2>
                 </div>
-                <div class="texto">Anel de Ouro Cravejado </div>
-                <button type="submit"> Comprar </button>
-
+                <button type="button" class="comprarBtn" data-foto="{{ produto['foto'] }}" data-descricao="{{ produto['descricao'] }}" data-preco="{{ produto['preco'] }}">Comprar</button>
             </div>
-
-            <div class="card-ouro-itens">
-                <div class="card-ouro">
-                    <img src="/static/img/produtos-ouro/brinco-ouro.jpg" alt="Image 1">
-                </div>
-                <div class="texto"> Argolinha Cravejada </div>
-                <button type="submit"> Comprar </button>
-
-            </div>
-
-            <div class="card-ouro-itens">
-                <div class="card-ouro">
-                    <img src="/static/img/produtos-ouro/gargantilha-ouro.jpg" alt="Image 1">
-                </div>
-                <div class="texto"> Gargantilha de Diamantes </div>
-                <button type="submit"> Comprar </button>
-            </div>
-
-            <div class="card-ouro-itens">
-                <div class="card-ouro">
-                    <img src="/static/img/produtos-ouro/conjunto-ouro.jpg" alt="Image 1">
-                </div>
-                <div class="texto"> Conjunto de Coração </div>
-                <button type="submit"> Comprar </button>
-            </div>
-
-            <div class="card-ouro-itens">
-                <div class="card-ouro">
-                    <img src="/static/img/produtos-ouro/colar-ouro2.jpg" alt="Image 1">
-                </div>
-                <div class="texto"> Correntinha de Ouro </div>
-                <button type="submit"> Comprar </button>
-            </div>
-
-            <div class="card-ouro-itens">
-                <div class="card-ouro">
-                    <img src="/static/img/produtos-ouro/bracelete-ouro2.jpg" alt="Image 1">
-                </div>
-                <div class="texto"> Bracelete de Diamantes </div>
-                <button type="submit"> Comprar </button>
-            </div>
-
-            <div class="card-ouro-itens">
-                <div class="card-ouro">
-                    <img src="/static/img/produtos-ouro/anel-ouro3.jpg" alt="Image 1">
-                </div>
-                <div class="texto"> Anel com pedra de Turquesa </div>
-                <button type="submit"> Comprar </button>
-            </div>
-
-            <div class="card-ouro-itens">
-                <div class="card-ouro">
-                    <img src="/static/img/produtos-ouro/anel-ouro2.jpg" alt="Image 1">
-                </div>
-                <div class="texto"> Anel com Safira Rosa </div>
-                <button type="submit"> Comprar </button>
-            </div>
-
-            <div class="card-ouro-itens">
-                <div class="card-ouro">
-                    <img src="/static/img/produtos-ouro/colar-ouro3.jpg" alt="Image 1">
-                </div>
-                <div class="texto"> Colar com Pingente  </div>
-                <button type="submit"> Comprar </button>
-            </div>
-
+            {% endfor %}
         </div>
-
     </div>
 </section>
 
@@ -106,7 +33,15 @@
     <a href="/comentario">Adicionar Comentários</a>
 </section>
 
-{% extends "layout.html" %}
-{% block conteudo %}
+<!-- Modal -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <img id="modalFoto" src="" alt="Imagem do Produto" style="width: 100%; max-height: 300px; object-fit: contain;">
+        <h2 id="modalDescricao"></h2>
+        <p id="modalPreco"></p>
+        <button id="adicionarCarrinho">Adicionar ao Carrinho</button>
+    </div>
+</div>
 
 {% endblock %}

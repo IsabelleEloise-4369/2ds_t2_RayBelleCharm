@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, session, jsonify
 from usuario import Usuario
+from conexao import Conexao
 
 #app é o servidor
 #criei o objeto app usando a classe Flask
@@ -73,12 +74,60 @@ def pagina_comentario():
 @app.route("/ouro")
 #função da página de produtos apenas de ouro
 def pagina_ouro():
-    return render_template("ouro-raybelle.html")
+    # conectando o banco de dados
+    mydb = Conexao.conectar()
 
+    mycursor = mydb.cursor()
+    # Consulta ao banco de dados para obter os produtos da categoria "ouro"
+    produtos_ouro = ("SELECT preco, foto, descricao, categoria FROM tb_produto WHERE categoria = 'ouro'")
+
+    #executar
+    mycursor.execute(produtos_ouro)
+
+    resultado = mycursor.fetchall()
+
+    mydb.close()
+
+    lista_produtos = []
+    
+    for produto in resultado:
+        lista_produtos.append({
+            "preco":produto[0],
+            "foto":produto[1],
+            "descricao":produto[2],
+            "categoria":produto[3],
+        })
+    return render_template("ouro-raybelle.html", lista_produtos = lista_produtos)
+    
+    # return render_template("ouro-raybelle.html", produtos=produtos_ouro)
+    
 #roteamento da página de produtos prata
 @app.route("/prata")
 #função da página de produtos apenas de prata
 def pagina_prata():
-    return render_template("prata-raybelle.html")
+    # conectando o banco de dados
+    mydb = Conexao.conectar()
+
+    mycursor = mydb.cursor()
+    # Consulta ao banco de dados para obter os produtos da categoria "ouro"
+    produtos_prata = ("SELECT preco, foto, descricao, categoria FROM tb_produto WHERE categoria = 'prata'")
+
+    #executar
+    mycursor.execute(produtos_prata)
+
+    resultado = mycursor.fetchall()
+
+    mydb.close()
+
+    lista_produtos = []
+    
+    for produto in resultado:
+        lista_produtos.append({
+            "preco":produto[0],
+            "foto":produto[1],
+            "descricao":produto[2],
+            "categoria":produto[3],
+        })
+    return render_template("prata-raybelle.html", lista_produtos = lista_produtos)
 
 app.run(debug=True)
