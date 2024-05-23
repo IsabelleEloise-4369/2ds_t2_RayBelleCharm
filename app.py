@@ -97,7 +97,7 @@ def pagina_ouro():
             "descricao":produto[2],
             "categoria":produto[3],
         })
-    return (lista_produtos)
+    return render_template("ouro-raybelle.html", lista_produtos = lista_produtos)
     
     # return render_template("ouro-raybelle.html", produtos=produtos_ouro)
     

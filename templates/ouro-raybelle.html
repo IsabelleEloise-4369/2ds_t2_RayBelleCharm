@@ -15,14 +15,18 @@
 
         <div class="card-container__ouro">
 
-            <div class="card-ouro-itens">
-                <div class="card-ouro">
-                    <img src="/static/img/produtos-ouro/bracelete-ouro.jpg" alt="Image 1">
-                </div>
-                <div class="texto">Bracelete de Ouro </div>
-                <button type="submit"> Comprar </button>
-
+            {% for produto in lista_produtos%}
+            <div class="card-ouro">
+                <img src="{{produto['foto']}}" alt="Produto">
             </div>
+
+            <div class="texto">
+                <h2>{{produto['descricao']}}</h2>
+                <h2>R$ {{produto['preco']}}.</h2>       
+            </div>
+
+            <button type="submit"> Comprar </button>
+            {% endfor %}
 
         </div>
 
@@ -32,5 +36,25 @@
 <section class="depoimentos-ouro">
     <a href="/comentario">Adicionar Comentários</a>
 </section>
+
+<script>
+    // //função para mostar as mensagens
+    // function mostraProdutos(){
+    // //o $ é utilizado para especificar que é jquery 
+    // // get = pega os dados
+    // // post = envia dados
+    //     $.ajax({
+    //         url: "/ouro",
+    //         type: "GET",
+    //         success: function (lista_produtos){
+    //             /* i significa index */
+    //             for(){
+                 
+    //             }
+    //         }
+    //     })
+    // }
+
+</script>
 
 {% endblock %}
