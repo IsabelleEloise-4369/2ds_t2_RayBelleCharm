@@ -73,8 +73,33 @@ def pagina_comentario():
 @app.route("/ouro")
 #função da página de produtos apenas de ouro
 def pagina_ouro():
-    return render_template("ouro-raybelle.html")
+    # conectando o banco de dados
+    mydb = Conexao.conectar()
 
+    mycursor = mydb.cursor()
+    # Consulta ao banco de dados para obter os produtos da categoria "ouro"
+    produtos_ouro = ("SELECT preco, foto, descricao, categoria FROM tb_produto WHERE categoria = 'ouro'")
+
+    #executar
+    mycursor.execute(produtos_ouro)
+
+    resultado = mycursor.fetchall()
+
+    mydb.close()
+
+    lista_produtos = []
+    
+    for produto in resultado:
+        lista_produtos.append({
+            "preco":produto[0],
+            "foto":produto[1],
+            "descricao":produto[2],
+            "categoria":produto[3],
+        })
+    return (lista_produtos)
+    
+    # return render_template("ouro-raybelle.html", produtos=produtos_ouro)
+    
 #roteamento da página de produtos prata
 @app.route("/prata")
 #função da página de produtos apenas de prata
