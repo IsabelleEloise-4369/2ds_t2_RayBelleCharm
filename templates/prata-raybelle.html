@@ -2,7 +2,8 @@
 <link rel="stylesheet" href="/static/prata.css">
 {% endblock %}
 
-
+{% extends "layout.html" %}
+{% block conteudo %}
 <section class="produtos-prata">
 
     <div class="grid-container__prata">
@@ -22,80 +23,6 @@
 
             </div>
 
-            <div class="card-prata-itens">
-                <div class="card-prata">
-                    <img src="/static/img/produtos-prata/bracelete-prata.jpg" alt="Image 1">
-                </div>
-                <div class="texto">Bracelete de Prata</div>
-                <button type="submit"> Comprar </button>
-
-            </div>
-
-            <div class="card-prata-itens">
-                <div class="card-prata">
-                    <img src="/static/img/produtos-prata/Brinco-prata.jpg" alt="Image 1">
-                </div>
-                <div class="texto"> Brinco de Diamantes </div>
-                <button type="submit"> Comprar </button>
-
-            </div>
-
-            <div class="card-prata-itens">
-                <div class="card-prata">
-                    <img src="/static/img/produtos-prata/colar-prata.jpg" alt="Image 1">
-                </div>
-                <div class="texto"> Colar de coração com pedra de Safira </div>
-                <button type="submit"> Comprar </button>
-            </div>
-
-            <div class="card-prata-itens">
-                <div class="card-prata">
-                    <img src="/static/img/produtos-prata/conjunto-prata.jpg" alt="Image 1">
-                </div>
-                <div class="texto"> Conjunto de Prata </div>
-                <button type="submit"> Comprar </button>
-            </div>
-
-            <div class="card-prata-itens">
-                <div class="card-prata">
-                    <img src="/static/img/produtos-prata/kit-prata.jpg" alt="Image 1">
-                </div>
-                <div class="texto"> Kit de Prata </div>
-                <button type="submit"> Comprar </button>
-            </div>
-
-            <div class="card-prata-itens">
-                <div class="card-prata">
-                    <img src="/static/img/produtos-prata/anel-prata3.jpg" alt="Image 1">
-                </div>
-                <div class="texto"> Anel de Diamantes </div>
-                <button type="submit"> Comprar </button>
-            </div>
-
-            <div class="card-prata-itens">
-                <div class="card-prata">
-                    <img src="/static/img/produtos-prata/bracelete-prata2.jpg" alt="Image 1">
-                </div>
-                <div class="texto"> Bracelete de Flor </div>
-                <button type="submit"> Comprar </button>
-            </div>
-
-            <div class="card-prata-itens">
-                <div class="card-prata">
-                    <img src="/static/img/produtos-prata/brinco-prata2.jpg" alt="Image 1">
-                </div>
-                <div class="texto"> Brinco de Prata </div>
-                <button type="submit"> Comprar </button>
-            </div>
-
-            <div class="card-prata-itens">
-                <div class="card-prata">
-                    <img src="/static/img/produtos-prata/conjunto-prata2.jpg" alt="Image 1">
-                </div>
-                <div class="texto"> Conjunto em Pérolas  </div>
-                <button type="submit"> Comprar </button>
-            </div>
-
         </div>
 
     </div>
@@ -104,11 +31,5 @@
 <section class="depoimentos-prata">
     <a href="/comentario">Adicionar Comentários</a>
 </section>
-
-
-
-
-{% extends "layout.html" %}
-{% block conteudo %}
 
 {% endblock %}

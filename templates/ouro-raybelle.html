@@ -3,7 +3,8 @@
 <link rel="stylesheet" href="/static/ouro.css">
 {% endblock %}
 
-
+{% extends "layout.html" %}
+{% block conteudo %}
 <section class="produtos-ouro">
 
     <div class="grid-container__ouro">
@@ -23,80 +24,6 @@
 
             </div>
 
-            <div class="card-ouro-itens">
-                <div class="card-ouro">
-                    <img src="/static/img/produtos-ouro/anel-ouro.jpg" alt="Image 1">
-                </div>
-                <div class="texto">Anel de Ouro Cravejado </div>
-                <button type="submit"> Comprar </button>
-
-            </div>
-
-            <div class="card-ouro-itens">
-                <div class="card-ouro">
-                    <img src="/static/img/produtos-ouro/brinco-ouro.jpg" alt="Image 1">
-                </div>
-                <div class="texto"> Argolinha Cravejada </div>
-                <button type="submit"> Comprar </button>
-
-            </div>
-
-            <div class="card-ouro-itens">
-                <div class="card-ouro">
-                    <img src="/static/img/produtos-ouro/gargantilha-ouro.jpg" alt="Image 1">
-                </div>
-                <div class="texto"> Gargantilha de Diamantes </div>
-                <button type="submit"> Comprar </button>
-            </div>
-
-            <div class="card-ouro-itens">
-                <div class="card-ouro">
-                    <img src="/static/img/produtos-ouro/conjunto-ouro.jpg" alt="Image 1">
-                </div>
-                <div class="texto"> Conjunto de Coração </div>
-                <button type="submit"> Comprar </button>
-            </div>
-
-            <div class="card-ouro-itens">
-                <div class="card-ouro">
-                    <img src="/static/img/produtos-ouro/colar-ouro2.jpg" alt="Image 1">
-                </div>
-                <div class="texto"> Correntinha de Ouro </div>
-                <button type="submit"> Comprar </button>
-            </div>
-
-            <div class="card-ouro-itens">
-                <div class="card-ouro">
-                    <img src="/static/img/produtos-ouro/bracelete-ouro2.jpg" alt="Image 1">
-                </div>
-                <div class="texto"> Bracelete de Diamantes </div>
-                <button type="submit"> Comprar </button>
-            </div>
-
-            <div class="card-ouro-itens">
-                <div class="card-ouro">
-                    <img src="/static/img/produtos-ouro/anel-ouro3.jpg" alt="Image 1">
-                </div>
-                <div class="texto"> Anel com pedra de Turquesa </div>
-                <button type="submit"> Comprar </button>
-            </div>
-
-            <div class="card-ouro-itens">
-                <div class="card-ouro">
-                    <img src="/static/img/produtos-ouro/anel-ouro2.jpg" alt="Image 1">
-                </div>
-                <div class="texto"> Anel com Safira Rosa </div>
-                <button type="submit"> Comprar </button>
-            </div>
-
-            <div class="card-ouro-itens">
-                <div class="card-ouro">
-                    <img src="/static/img/produtos-ouro/colar-ouro3.jpg" alt="Image 1">
-                </div>
-                <div class="texto"> Colar com Pingente  </div>
-                <button type="submit"> Comprar </button>
-            </div>
-
         </div>
 
     </div>
@@ -105,8 +32,5 @@
 <section class="depoimentos-ouro">
     <a href="/comentario">Adicionar Comentários</a>
 </section>
-
-{% extends "layout.html" %}
-{% block conteudo %}
 
 {% endblock %}
