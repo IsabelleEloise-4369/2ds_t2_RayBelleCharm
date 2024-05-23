@@ -2,6 +2,10 @@
 <link rel="stylesheet" href="/static/prata.css">
 {% endblock %}
 
+{% block js %}
+<script src="/static/prata.js" defer></script>
+{% endblock %}
+
 {% extends "layout.html" %}
 {% block conteudo %}
 <section class="produtos-prata">
@@ -14,14 +18,21 @@
 
         <div class="card-container__prata">
 
+            {% for produto in lista_produtos%}
             <div class="card-prata-itens">
                 <div class="card-prata">
-                    <img src="/static/img/produtos-prata/anel-prata2.jpg" alt="Image 1">
+                    <img src="{{produto['foto']}}" alt="Image 1">
                 </div>
-                <div class="texto"> Anel com Diamante </div>
-                <button type="submit"> Comprar </button>
-
+                <div class="texto">
+                     <h2>{{produto['descricao']}}</h2>
+                     <br>
+                     <h2> R$ {{produto['preco']}} </h2>
+                </div>
+                <form action="/sobreProduto">
+                    <button type="submit" value="{{produto['descricao']}}" name="saibaMais">Saiba mais</button>
+                </form>
             </div>
+            {% endfor %}
 
         </div>
 
@@ -31,5 +42,6 @@
 <section class="depoimentos-prata">
     <a href="/comentario">Adicionar Comentários</a>
 </section>
+
 
 {% endblock %}
