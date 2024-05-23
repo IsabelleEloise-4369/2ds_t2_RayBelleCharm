@@ -1,0 +1,24 @@
+{% block css %}
+<link rel="stylesheet" href="/static/produtos.css">
+{% endblock %}
+
+{% extends "layout.html" %}
+{% block conteudo %}
+<section class="container-produtos">
+    {% for produto in lista_produtos%}
+    <div class="container-produtos__itens">
+        <div class="img">
+            <img src="{{produto['foto']}}" alt="Image 1">
+        </div>
+        <div class="texto">
+             <h2>{{produto['descricao']}}</h2>
+             <br>
+             <h2> R$ {{produto['preco']}} </h2>
+        </div>
+        <form action="">
+            <button type="submit" value="{{produto['descricao']}}" name="btnAdicionar">Adicionar ao carrinho</button>
+        </form>
+    </div>
+    {%endfor%}
+</section>
+{% endblock %}

@@ -130,4 +130,10 @@ def pagina_prata():
         })
     return render_template("prata-raybelle.html", lista_produtos = lista_produtos)
 
+# roteamento para aparecer apenas o produto escolhido
+@app.route("/sobreProduto")
+def pagina_produtos():
+    
+
+
 app.run(debug=True)
