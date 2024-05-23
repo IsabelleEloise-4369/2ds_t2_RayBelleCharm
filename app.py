@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, session, jsonify
 from usuario import Usuario
+from conexao import Conexao
 
 #app é o servidor
 #criei o objeto app usando a classe Flask
