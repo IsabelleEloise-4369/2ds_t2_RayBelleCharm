@@ -72,7 +72,9 @@ def pagina_comentario():
             return render_template("comentario-raybelle.html")
         if request.method == 'POST':
             avaliacao = request.form['comentario']
+
             mydb = Conexao.conectar()
+            
             mycursor = mydb.cursor()
 
             comentario = (f"INSERT INTO tb_comentario (cpf_cliente, avaliacao) VALUES ({session.cpf}, {avaliacao})")
@@ -80,7 +82,7 @@ def pagina_comentario():
             mycursor.execute(comentario)
 
             resultado = mycursor.fetchall()
-            
+
             mydb.close()
 
     else:
