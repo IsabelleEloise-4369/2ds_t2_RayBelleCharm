@@ -59,6 +59,7 @@ class Usuario:
             self.logado = True
             self.email = resultado[2]
             self.senha = resultado[4]
+            self.cpf = resultado[1]
         else: 
             self.logado = False
               

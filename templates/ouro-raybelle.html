@@ -14,15 +14,20 @@
         <div class="card-container__ouro">
             {% for produto in lista_produtos %}
             <div class="card-ouro-itens">
+
                 <div class="card-ouro">
                     <img src="{{ produto['foto'] }}" alt="{{ produto['descricao'] }}">
                 </div>
+
                 <div class="texto">
                     <h2>{{ produto['descricao'] }}</h2>
                     <br>
                     <h2>R$ {{ produto['preco'] }}</h2>
                 </div>
-                <button type="button" class="comprarBtn" data-foto="{{ produto['foto'] }}" data-descricao="{{ produto['descricao'] }}" data-preco="{{ produto['preco'] }}">Comprar</button>
+                
+                <form action="/sobreProduto">
+                    <button type="submit" value="{{produto['descricao']}}" name="saibaMais">Saiba mais</button>
+                </form>
             </div>
             {% endfor %}
         </div>
@@ -31,17 +36,10 @@
 
 <section class="depoimentos-ouro">
     <a href="/comentario">Adicionar Comentários</a>
-</section>
-
-<!-- Modal -->
-<div id="modal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <img id="modalFoto" src="" alt="Imagem do Produto" style="width: 100%; max-height: 300px; object-fit: contain;">
-        <h2 id="modalDescricao"></h2>
-        <p id="modalPreco"></p>
-        <button id="adicionarCarrinho">Adicionar ao Carrinho</button>
+    <div class="container-comentarios">
+        <h2> <!-- nome da pessoa que realizou a avaliação --> </h2>
+        <h3> <!-- avaliação --> </h3>
     </div>
-</div>
+</section>
 
 {% endblock %}

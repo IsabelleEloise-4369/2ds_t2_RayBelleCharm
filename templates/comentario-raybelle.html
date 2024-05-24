@@ -13,9 +13,9 @@
 
     <form action="/comentario" method="POST">
         <label for="comentario">Escreva abaixo um comentário sobre a joia que mudou a sua vida:</label>
-        <textarea id="comentario" cols="50" rows="10"></textarea>
+        <textarea id="comentario" cols="50" rows="10" name="comentario"></textarea>
 
-        <a href="/">Enviar Comentário</a>
+        <button type="submit" id="btnEnviarComent" name="btnEnviarComent">Enviar Comentário</button>
     </form>
 </section>
 {% endblock %}
