@@ -130,4 +130,33 @@ def pagina_prata():
         })
     return render_template("prata-raybelle.html", lista_produtos = lista_produtos)
 
+# roteamento para aparecer apenas o produto escolhido
+@app.route("/sobreProduto")
+def pagina_produtos():
+
+    nome = request.args.get('saibaMais')
+
+    # conectando o banco de dados
+    mydb = Conexao.conectar()
+
+    mycursor = mydb.cursor()
+
+    # Consulta ao banco de dados para obter o produto que foi clicado
+    produto = (f"SELECT preco, foto, descricao, categoria FROM tb_produto WHERE descricao = '{nome}'")
+
+    mycursor.execute(produto)
+
+    resultado = mycursor.fetchone()
+    
+    mydb.close()
+    
+    dicionario_produto ={
+            "preco":resultado[0],
+            "foto":resultado[1],
+            "descricao":resultado[2],
+            "categoria":resultado[3],
+    }
+    
+    return render_template("sobre-produtos-raybelle.html", dicionario_produto = dicionario_produto)
+
 app.run(debug=True)
