@@ -124,52 +124,6 @@ body{
 
 
 
-/* ****************************** padronização/ estilização SERVIÇOS ************************************ */
-
-.servicos-inicial{
-    margin-bottom: 2.8rem;
-    background-image: linear-gradient(to right, #cd8c00ca, #CD8D00, #7f5907 );
-    width: 100vw;
-    height: 7vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-
-  }
-  
-  .servicos{
-    display: flex;
-    align-items: center;
-  }
-  
-  .servicos img{
-    width: 2.4rem;
-    height: 2.4rem;
-    margin: 0 0 0 1rem;
-  }
-  
-  .servicos-texto{
-    align-items: center;
-    text-align: center;
-    margin: 1rem;
-  }
-  .servicos-texto h6{
-    font-size: 1rem;
-    font-weight: 700;
-    color: #ffd988;
-  }
-  
-  .servicos-texto p{
-    color: #fff;
-  }
-  
-/* ************************************************************************************************************ */
-
-
 /* ****************************** padronização/ estilização RODAPÉ ************************************ */
 footer{
     width: 100vw;

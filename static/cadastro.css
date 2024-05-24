@@ -2,13 +2,13 @@
 
 .cadastro-container__form{
     background-color: #cd8c00a6;
-    width: 55%;
-    height: 55%;
+    width: 50%;
+    height: 60%;
     color: #E8D3B6;
-    margin-top: 30vh;
+    margin-top: 45vh;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 20vh;
+    margin-bottom: 25vh;
 }
 
 .cadastro-container__form h2{
