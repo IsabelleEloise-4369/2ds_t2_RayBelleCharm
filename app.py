@@ -65,8 +65,10 @@ def pagina_login():
 @app.route("/comentario", methods=["GET", "POST"])
 #função da página de comentário
 def pagina_comentario():
+
     if "usuario_logado" in session:
         return render_template("comentario-raybelle.html")
+
     else:
         return redirect("/cadastro")
 
