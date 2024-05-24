@@ -56,7 +56,7 @@ def pagina_login():
         if usuario.logado:
             session['usuario_logado'] = {'email':usuario.email,
                                          'senha':usuario.senha,
-                                         'cpf' :usuario.cpf}
+                                         'cpf':usuario.cpf}
             return redirect('/')
         else:
             session.clear()
@@ -77,13 +77,23 @@ def pagina_comentario():
             
             mycursor = mydb.cursor()
 
-            comentario = (f"INSERT INTO tb_comentario (cpf_cliente, avaliacao) VALUES ({session.cpf}, {avaliacao})")
+            comentario = (f"INSERT INTO tb_comentario (cpf_cliente, avaliacao) VALUES ('{session['usuario_logado']['cpf']}', '{avaliacao}')")
 
             mycursor.execute(comentario)
 
-            resultado = mycursor.fetchall()
+            mydb.commit()
 
             mydb.close()
+
+            lista_comentario = []
+
+            for coment in lista_comentario:
+                lista_comentario.append({
+                    "cpf_cliente":coment[0],
+                    "avaliacao":coment[1]
+                })
+
+            return render_template("raybelle.html", lista_comentario = lista_comentario)
 
     else:
         return redirect("/cadastro")

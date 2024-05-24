@@ -35,10 +35,9 @@ CREATE TABLE tb_carrinho(
 
 -- criação da tabela tb_comentario e seus atributos
 CREATE TABLE tb_comentario(
+	cod_avaliacao INT AUTO_INCREMENT PRIMARY KEY,
 	cpf_cliente VARCHAR (11) NOT NULL,
-    avaliacao VARCHAR (200) NOT NULL,
-    cod_avaliacao NUMERIC PRIMARY KEY,
-    id_produto NUMERIC NOT NULL
+    avaliacao VARCHAR (200) NOT NULL
 );
 
 CREATE USER 'usuario_raybelle'@'%' IDENTIFIED BY 'raybelle';
