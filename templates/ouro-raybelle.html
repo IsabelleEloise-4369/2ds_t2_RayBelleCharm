@@ -38,6 +38,13 @@
 
 <section class="depoimentos-ouro">
     <a href="/comentario">Adicionar Comentários</a>
+
+    {% for comentarios in lista_comentario %}
+    <div class="card-comentario">
+        <h2>{{ comentarios['avaliacao'] }}</h2>
+        <br>
+    </div>  
+    {% endfor %}  
 </section>
 
 {% endblock %}
