@@ -5,33 +5,21 @@
 {% extends "layout.html" %}
 {% block conteudo %}
 <section class="container-produtos">
-  
     <div class="container-produtos__itens">
-            <img src="{{dicionario_produto['foto']}}" alt="Image 1">
-        
-            <div class="texto">
-                <h2>{{dicionario_produto['descricao']}}</h2>
-                <br>
-                <h3> R$ {{dicionario_produto['preco']}} </h3>
+        <img src="{{dicionario_produto['foto']}}" alt="Image 1">
+    
+        <div class="texto">
+            <h2>{{dicionario_produto['descricao']}}</h2>
+            <br>
+            <h3> R$ {{dicionario_produto['preco']}} </h3>
 
+            <form action="/carrinho" method="POST">
+                <button type="submit" name="btnAdicionar" value="{{dicionario_produto['cod_prod']}}">Adicionar ao carrinho</button>
+            </form>
 
-                <form>
-                    <button type="submit" value="{{dicionario_produto['descricao']}}" name="btnAdicionar">Adicionar ao carrinho</button>
-                </form>
-
-                <a href="/ouro">Voltar para á página Ouro</a>
-                
-            </div>
-        
-    </div>
-
-</section>
-
-<section class="container-avaliacao">
-    <!-- aqui vai o for -->
-    <div class="container-comentarios">
-        <h2> <!-- nome da pessoa que realizou a avaliação --> </h2>
-        <h3> <!-- avaliação --> </h3>
+            <a href="/ouro">Voltar para á página Ouro</a>
+        </div>    
     </div>
 </section>
+
 {% endblock %}
