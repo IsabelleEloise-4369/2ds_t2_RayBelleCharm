@@ -105,11 +105,9 @@ def pagina_ouro():
 
     #executar
     mycursor.execute(produtos_ouro)
-
     resultado = mycursor.fetchall()
 
     mycursor.execute(comentario)
-
     comentarios = mycursor.fetchall()
 
     mydb.close()
