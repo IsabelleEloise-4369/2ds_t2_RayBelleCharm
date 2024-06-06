@@ -1,8 +1,9 @@
 .login{
-    margin-top: 30vh;
+    margin-top: 33vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 5vw;
 }
 
 .login h2{
@@ -64,4 +65,9 @@ input{
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.login-container__form a{
+    margin-bottom: 5rem;
+    font-size: 1rem;
 }

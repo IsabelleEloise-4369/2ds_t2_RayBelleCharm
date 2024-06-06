@@ -1,5 +1,6 @@
-from flask import Flask , render_template, request, redirect, session, jsonify
+from flask import Flask, render_template, request, redirect, session, jsonify
 from usuario import Usuario
+from conexao import Conexao
 
 #app é o servidor
 #criei o objeto app usando a classe Flask
@@ -8,10 +9,13 @@ app.secret_key = 'raybelle'
 
 #roteamento da página
 @app.route("/")
+#função da página inicial
 def pagina_inicial():
     return render_template("raybelle.html")
 
+#roteamento da página cadastro
 @app.route("/cadastro", methods=["GET", "POST"])
+#função da página de caadastro
 def pagina_cadastro():
     if request.method == "GET":
         return render_template("cadastro-raybelle.html")
@@ -37,20 +41,150 @@ def pagina_cadastro():
             return "Erro ao cadastrar o usuário."
 
 
-@app.route("/login")
-def pagina_logn():
-    return render_template("login-raybelle.html")
+#roteamento da página login
+@app.route("/login", methods=["GET", "POST"])
+#função da página de login
+def pagina_login():
+    if request.method == "GET":
+        return render_template("login-raybelle.html")
+    if request.method == "POST":
+        email = request.form['email']
+        senha = request.form['senha']
 
-@app.route("/comentario")
-def pagina_comentaio():
-    return render_template("comentario-raybelle.html")
+        usuario = Usuario()
+        usuario.logar(email, senha)
+        if usuario.logado:
+            session['usuario_logado'] = {'email':usuario.email,
+                                         'senha':usuario.senha,
+                                         'cpf':usuario.cpf}
+            return redirect('/')
+        else:
+            session.clear()
+            return 'Email ou senha incorretos.'
 
+#roteamento da página comentário
+@app.route("/comentario", methods=["GET", "POST"])
+#função da página de comentário
+def pagina_comentario():
+
+    if "usuario_logado" in session:
+        if request.method == 'GET':
+            return render_template("comentario-raybelle.html")
+        if request.method == 'POST':
+            avaliacao = request.form['comentario']
+
+            mydb = Conexao.conectar()
+            
+            mycursor = mydb.cursor()
+
+            comentario = (f"INSERT INTO tb_comentario (cpf_cliente, avaliacao) VALUES ('{session['usuario_logado']['cpf']}', '{avaliacao}')")
+
+            mycursor.execute(comentario)
+
+            mydb.commit()
+
+            mydb.close()
+
+            lista_comentario = []
+
+            for coment in lista_comentario:
+                lista_comentario.append({
+                    "cpf_cliente":coment[0],
+                    "avaliacao":coment[1]
+                })
+
+            return render_template("raybelle.html", lista_comentario = lista_comentario)
+
+    else:
+        return redirect("/cadastro")
+
+#roteamento da página de produtos ouro
 @app.route("/ouro")
+#função da página de produtos apenas de ouro
 def pagina_ouro():
-    return render_template("ouro-raybelle.html")
+    # conectando o banco de dados
+    mydb = Conexao.conectar()
 
+    mycursor = mydb.cursor()
+    # Consulta ao banco de dados para obter os produtos da categoria "ouro"
+    produtos_ouro = ("SELECT preco, foto, descricao, categoria FROM tb_produto WHERE categoria = 'ouro'")
+
+    #executar
+    mycursor.execute(produtos_ouro)
+
+    resultado = mycursor.fetchall()
+
+    mydb.close()
+
+    lista_produtos = []
+    
+    for produto in resultado:
+        lista_produtos.append({
+            "preco":produto[0],
+            "foto":produto[1],
+            "descricao":produto[2],
+            "categoria":produto[3],
+        })
+    return render_template("ouro-raybelle.html", lista_produtos = lista_produtos)
+    
+    # return render_template("ouro-raybelle.html", produtos=produtos_ouro)
+    
+#roteamento da página de produtos prata
 @app.route("/prata")
+#função da página de produtos apenas de prata
 def pagina_prata():
-    return render_template("prata-raybelle.html")
+    # conectando o banco de dados
+    mydb = Conexao.conectar()
+
+    mycursor = mydb.cursor()
+    # Consulta ao banco de dados para obter os produtos da categoria "ouro"
+    produtos_prata = ("SELECT preco, foto, descricao, categoria FROM tb_produto WHERE categoria = 'prata'")
+
+    #executar
+    mycursor.execute(produtos_prata)
+
+    resultado = mycursor.fetchall()
+
+    mydb.close()
+
+    lista_produtos = []
+    
+    for produto in resultado:
+        lista_produtos.append({
+            "preco":produto[0],
+            "foto":produto[1],
+            "descricao":produto[2],
+            "categoria":produto[3],
+        })
+    return render_template("prata-raybelle.html", lista_produtos = lista_produtos)
+
+# roteamento para aparecer apenas o produto escolhido
+@app.route("/sobreProduto")
+def pagina_produtos():
+
+    nome = request.args.get('saibaMais')
+
+    # conectando o banco de dados
+    mydb = Conexao.conectar()
+
+    mycursor = mydb.cursor()
+
+    # Consulta ao banco de dados para obter o produto que foi clicado
+    produto = (f"SELECT preco, foto, descricao, categoria FROM tb_produto WHERE descricao = '{nome}'")
+
+    mycursor.execute(produto)
+
+    resultado = mycursor.fetchone()
+    
+    mydb.close()
+    
+    dicionario_produto ={
+            "preco":resultado[0],
+            "foto":resultado[1],
+            "descricao":resultado[2],
+            "categoria":resultado[3],
+    }
+    
+    return render_template("sobre-produtos-raybelle.html", dicionario_produto = dicionario_produto)
 
 app.run(debug=True)

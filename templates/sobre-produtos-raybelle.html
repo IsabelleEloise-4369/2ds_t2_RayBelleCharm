@@ -1,0 +1,35 @@
+{% block css %}
+<link rel="stylesheet" href="/static/sobre-produto.css">
+{% endblock %}
+
+{% extends "layout.html" %}
+{% block conteudo %}
+<section class="container-produtos">
+  
+    <div class="container-produtos__itens">
+            <img src="{{dicionario_produto['foto']}}" alt="Image 1">
+        
+            <div class="texto">
+                <h2>{{dicionario_produto['descricao']}}</h2>
+                <br>
+                <h3> R$ {{dicionario_produto['preco']}} </h3>
+
+
+                <form>
+                    <button type="submit" value="{{dicionario_produto['descricao']}}" name="btnAdicionar">Adicionar ao carrinho</button>
+                </form>
+                
+            </div>
+        
+    </div>
+
+</section>
+
+<section class="container-avaliacao">
+    <!-- aqui vai o for -->
+    <div class="container-comentarios">
+        <h2> <!-- nome da pessoa que realizou a avaliação --> </h2>
+        <h3> <!-- avaliação --> </h3>
+    </div>
+</section>
+{% endblock %}

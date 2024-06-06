@@ -1,0 +1,58 @@
+body{
+    background-image: linear-gradient(to right, #ffe1b8 , #ff6122f1);
+}
+
+.container-produtos__itens{
+    margin-top: 18%;
+    margin-bottom: 5rem;
+    display: flex;
+    justify-content: center;
+}
+
+
+.container-produtos__itens img{
+    width: 22rem;
+    height: 22rem;
+    border-radius: 20rem;
+    margin-right: 10rem;
+}
+
+.texto{
+    flex-direction: column;
+    justify-content: center;
+    display:flex;
+    text-align: center;
+    
+}
+
+.texto h2{
+    font-size: 2rem;
+    font-weight: 700;
+    color: rgb(255, 245, 227);
+}
+
+.texto h3{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1.5rem;
+}
+
+button{
+    padding: 0.8rem;
+    border-radius: 5rem;
+    align-items: center;
+    background-color: #E8D3B6;
+    border: 0.2rem solid #895e01;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #ff5e1f;
+    cursor: pointer;
+    border: 0.2rem dashed rgb(255, 255, 255);
+    font-size: 1rem;
+    transition: font-size 0.2s ease-in-out;
+    color: rgb(255, 255, 255);
+    border-radius: 3rem;
+}
