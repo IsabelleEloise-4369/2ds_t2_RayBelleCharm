@@ -188,7 +188,7 @@ def pagina_produtos():
     mycursor = mydb.cursor()
 
     # Consulta ao banco de dados para obter o produto que foi clicado
-    produto = (f"SELECT preco, foto, descricao, categoria FROM tb_produto WHERE descricao = '{nome}'")
+    produto = (f"SELECT preco, foto, descricao, categoria, cod_prod FROM tb_produto WHERE descricao = '{nome}'")
 
     mycursor.execute(produto)
 
@@ -201,8 +201,28 @@ def pagina_produtos():
             "foto":resultado[1],
             "descricao":resultado[2],
             "categoria":resultado[3],
+            "cod_prod":resultado[4]
     }
     
     return render_template("sobre-produtos-raybelle.html", dicionario_produto = dicionario_produto)
+
+# roteamento
+@app.route("/carrinho", methods=["GET", "POST"])
+def pagina_carrinhoDeCompras():
+    btnCodProd = request.args.get('btnAdicionar')
+    cpfCliente = session['usuario_logado']['cpf']
+
+    # conectando o banco de dados
+    mydb = Conexao.conectar()
+
+    mycursor = mydb.cursor()
+
+    carrinho = (f"INSERT INTO tb_carrinho (cpf_cliente, id_prod) VALUES ('{cpfCliente}', '{btnCodProd}')")
+
+    mycursor.execute(carrinho)
+
+    mydb.commit()
+
+    mydb.close()
 
 app.run(debug=True)
