@@ -56,3 +56,13 @@ button:hover{
     color: rgb(255, 255, 255);
     border-radius: 3rem;
 }
+
+a{
+    cursor: pointer;
+    margin-top: 1rem;
+    color: #ffe1b8;
+}
+
+a:hover{
+    color: #895e01;
+}
