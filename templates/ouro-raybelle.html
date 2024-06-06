@@ -37,14 +37,19 @@
 </section>
 
 <section class="depoimentos-ouro">
-    <a href="/comentario">Adicionar Comentários</a>
+    
+    <div class="card-comentario-itens">
+        {% for comentarios in lista_comentario %}
+            <h2>{{ comentarios['avaliacao'] }}</h2>
+            <br>
+        {% endfor %}  
+    </div>
 
-    {% for comentarios in lista_comentario %}
-    <div class="card-comentario">
-        <h2>{{ comentarios['avaliacao'] }}</h2>
-        <br>
-    </div>  
-    {% endfor %}  
+    <div class="adicionar-comentario">
+        <a href="/comentario">Adicionar Comentários</a>
+    </div>
+    
+
 </section>
 
 {% endblock %}
