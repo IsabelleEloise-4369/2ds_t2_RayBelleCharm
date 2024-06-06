@@ -85,15 +85,7 @@ def pagina_comentario():
 
             mydb.close()
 
-            lista_comentario = []
-
-            for coment in lista_comentario:
-                lista_comentario.append({
-                    "cpf_cliente":coment[0],
-                    "avaliacao":coment[1]
-                })
-
-            return render_template("raybelle.html", lista_comentario = lista_comentario)
+            return render_template("raybelle.html")
 
     else:
         return redirect("/cadastro")
@@ -109,10 +101,16 @@ def pagina_ouro():
     # Consulta ao banco de dados para obter os produtos da categoria "ouro"
     produtos_ouro = ("SELECT preco, foto, descricao, categoria FROM tb_produto WHERE categoria = 'ouro'")
 
+    comentario = ("SELECT cpf_cliente, avaliacao FROM tb_comentario")
+
     #executar
     mycursor.execute(produtos_ouro)
 
     resultado = mycursor.fetchall()
+
+    mycursor.execute(comentario)
+
+    comentarios = mycursor.fetchall()
 
     mydb.close()
 
@@ -125,7 +123,16 @@ def pagina_ouro():
             "descricao":produto[2],
             "categoria":produto[3],
         })
-    return render_template("ouro-raybelle.html", lista_produtos = lista_produtos)
+
+    lista_comentario = []
+
+    for coment in comentarios:
+        lista_comentario.append({
+            "cpf_cliente":coment[0],
+            "avaliacao":coment[1]
+        })
+
+    return render_template("ouro-raybelle.html", lista_produtos = lista_produtos, lista_comentario = lista_comentario)
     
     # return render_template("ouro-raybelle.html", produtos=produtos_ouro)
     
@@ -140,10 +147,14 @@ def pagina_prata():
     # Consulta ao banco de dados para obter os produtos da categoria "ouro"
     produtos_prata = ("SELECT preco, foto, descricao, categoria FROM tb_produto WHERE categoria = 'prata'")
 
+    comentario = ("SELECT cpf_cliente, avaliacao FROM tb_comentario")
+
     #executar
     mycursor.execute(produtos_prata)
-
     resultado = mycursor.fetchall()
+
+    mycursor.execute(comentario)
+    comentarios = mycursor.fetchall()
 
     mydb.close()
 
@@ -156,7 +167,16 @@ def pagina_prata():
             "descricao":produto[2],
             "categoria":produto[3],
         })
-    return render_template("prata-raybelle.html", lista_produtos = lista_produtos)
+
+    lista_comentario = []
+
+    for coment in comentarios:
+        lista_comentario.append({
+            "cpf_cliente":coment[0],
+            "avaliacao":coment[1]
+        })
+
+    return render_template("prata-raybelle.html", lista_produtos = lista_produtos, lista_comentario = lista_comentario)
 
 # roteamento para aparecer apenas o produto escolhido
 @app.route("/sobreProduto")
