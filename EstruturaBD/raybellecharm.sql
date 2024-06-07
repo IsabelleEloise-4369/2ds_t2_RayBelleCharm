@@ -18,7 +18,7 @@ CREATE TABLE tb_cliente(
 
 -- criação da tabela tb_produto e seus atributos
 CREATE TABLE tb_produto(
-	cod_prod NUMERIC PRIMARY KEY,
+	cod_prod VARCHAR(200) PRIMARY KEY,
     nome_prod VARCHAR (100) NOT NULL,
     preco FLOAT NOT NULL,
     foto VARCHAR (255) NOT NULL,
@@ -27,10 +27,10 @@ CREATE TABLE tb_produto(
 );
 -- criação da tabela tb_carrinho e seus atributos
 CREATE TABLE tb_carrinho(
-    id_carrinho INT PRIMARY KEY AUTO_INCREMENT,
+    id_carrinho INT AUTO_INCREMENT PRIMARY KEY,
+    id_prod VARCHAR(200),
 	quantidade INT NOT NULL,
-    cpf_cliente VARCHAR(11) NOT NULL,
-    id_prod NUMERIC NOT NULL
+    cpf_cliente VARCHAR(11) NOT NULL
 );
 
 -- criação da tabela tb_comentario e seus atributos
@@ -45,6 +45,10 @@ CREATE USER 'usuario_raybelle'@'%' IDENTIFIED BY 'raybelle';
 GRANT ALL PRIVILEGES ON raybellecharm.* TO 'usuario_raybelle'@'%' WITH GRANT OPTION;
 
 FLUSH PRIVILEGES;
+
+SELECT * FROM tb_produto p
+INNER JOIN tb_carrinho c
+ON p.cod_prod = c.id_prod;
 
 INSERT INTO `raybellecharm`.`tb_produto` (`cod_prod`, `nome_prod`, `preco`, `foto`, `descricao`, `categoria`) VALUES ('0', 'anel-ouro', '150.00', '/static/img/produtos-ouro/anel-ouro.jpg', 'Anel Rika', 'ouro');
 INSERT INTO `raybellecharm`.`tb_produto` (`cod_prod`, `nome_prod`, `preco`, `foto`, `descricao`, `categoria`) VALUES ('1', 'anel-ouro2', '350.00', '/static/img/produtos-ouro/anel-ouro2.jpg', 'Anel Vitória', 'ouro');

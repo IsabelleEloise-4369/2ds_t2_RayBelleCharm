@@ -209,7 +209,7 @@ def pagina_produtos():
 # roteamento
 @app.route("/carrinho", methods=["GET", "POST"])
 def pagina_carrinhoDeCompras():
-    btnCodProd = request.args.get('btnAdicionar')
+    btnQuant = request.args.get('btnAdicionar')
     cpfCliente = session['usuario_logado']['cpf']
 
     # conectando o banco de dados
@@ -217,7 +217,7 @@ def pagina_carrinhoDeCompras():
 
     mycursor = mydb.cursor()
 
-    carrinho = (f"INSERT INTO tb_carrinho (cpf_cliente, id_prod) VALUES ('{cpfCliente}', '{btnCodProd}')")
+    carrinho = (f"INSERT INTO tb_carrinho (cpf_cliente, quantidade) VALUES ('{cpfCliente}', '{btnQuant}')")
 
     mycursor.execute(carrinho)
 
