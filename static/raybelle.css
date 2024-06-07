@@ -109,7 +109,6 @@ body {
 }
 
 
-
 .mais-informacoes{
   color: black;
   margin:1rem 1rem 10rem 2rem;
@@ -142,18 +141,17 @@ body {
   text-align: center;
 }
 
-button{
+a{
   border-radius: 10rem;
   padding: 0.5rem;
-  margin-top: 1rem;
+  margin-top: 5rem;
   text-align: center;
   background-color: #673024;
   color: #fff;
   border: 3px solid rgb(255, 255, 255);
-  margin: 20px;
 }
 
-button:hover{
+a:hover{
   background-color: #C24616;
   cursor: pointer;
   border: 0.3rem dashed rgb(255, 255, 255);
@@ -170,7 +168,7 @@ input{
   text-align: center;
   color: #E8D3B6;
   background-color: #c2471691;
-  margin: 0.5rem;
+  margin-bottom: 2rem;
   border: #673024;
 }
 
