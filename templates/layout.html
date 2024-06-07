@@ -51,22 +51,51 @@
             </div>
             <script src="/static/raybelle.js"></script>
 
+            <!-- Botão para abrir a modal -->
             <div class="header-container__carrinho">
-                <figure>
+                <figure onclick="openModal()">
                     <img src="/static/img/carrinho-de-compras.png" alt="icone carrinho de compras">
                 </figure>
             </div>
         </div>
     </header>
 
+    <!-- A modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Conteúdo da modal -->
+        <div class="modal-content">
+            <!-- o x que aparece para fechar o modal -->
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Itens no Carrinho</h2>
+            <ul id="cartItems">
+                <!-- Aqui serão inseridos os itens do carrinho -->
+                <!-- Iterar sobre os itens do carrinho e exibi-los -->
+            </ul>
+        </div>
+
+    </div>
+
     
     {% block conteudo %}
     {% endblock %}
 
-
-
     <footer>
         <p>&copy; 2024 RAYBELLE Charm Acessórios Femininos</p>
     </footer>
+
+    <!-- Script para abrir e fechar a modal -->
+    <script>
+        // função para aparecer o modal
+        function openModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
+    
+        // função para fechar o modal
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+    </script>
+
 </body>
 </html>

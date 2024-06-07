@@ -209,7 +209,7 @@ def pagina_produtos():
 # roteamento
 @app.route("/carrinho", methods=["GET", "POST"])
 def pagina_carrinhoDeCompras():
-    btnQuant = request.args.get('btnAdicionar')
+    btnCodProd = request.form['btnAdicionar']
     cpfCliente = session['usuario_logado']['cpf']
 
     # conectando o banco de dados
@@ -217,12 +217,32 @@ def pagina_carrinhoDeCompras():
 
     mycursor = mydb.cursor()
 
-    carrinho = (f"INSERT INTO tb_carrinho (cpf_cliente, quantidade) VALUES ('{cpfCliente}', '{btnQuant}')")
+    carrinho = (f"INSERT INTO tb_carrinho (cpf_cliente, id_prod, quantidade) VALUES ('{cpfCliente}', '{btnCodProd}', 1)")
 
     mycursor.execute(carrinho)
 
     mydb.commit()
 
     mydb.close()
+
+    return redirect('/')
+
+@app.route("/api/carrinhoProdutos", methods=["GET"])
+def pagina_carrinhoProdutos():
+
+    # Conectar ao banco de dados para obter os itens do carrinho
+    mydb = Conexao.conectar()
+    mycursor = mydb.cursor()
+
+    cpfCliente = session['usuario_logado']['cpf']
+
+    mycursor.execute(f"SELECT p.descricao, p.preco FROM tb_produto p INNER JOIN tb_carrinho c ON p.cod_prod = c.id_prod WHERE cpf_cliente = '{cpfCliente}'")
+
+    itens_carrinho = mycursor.fetchall()
+
+    mydb.close()
+
+    # Renderize a página do carrinho e passe os itens do carrinho como contexto
+    return jsonify(itens_carrinho), 200
 
 app.run(debug=True)
