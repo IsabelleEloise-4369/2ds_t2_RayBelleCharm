@@ -243,6 +243,6 @@ def pagina_carrinhoProdutos():
     mydb.close()
 
     # Renderize a página do carrinho e passe os itens do carrinho como contexto
-    return jsonify(itens_carrinho), 200
+    return render_template('layout.html', jsonify(itens_carrinho))
 
 app.run(debug=True)

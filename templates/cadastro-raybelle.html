@@ -6,7 +6,11 @@
 {% block conteudo %}
 <section class="cadastro-container">
     <div class="cadastro-container__form">
-        <h2>CADASTRE-SE PARA PROSSEGUIR</h2>
+        <div class="titulo-form">
+            <h2>CADASTRE-SE PARA PROSSEGUIR</h2>
+            <p>Já possui conta ?</p>
+            <a href="/login">Login</a>
+        </div>
         <form action="/cadastro" method="POST">
             <div class="cadastro-container__form__itens">
                 <div class="cadastro-container__form__input">
@@ -56,6 +60,7 @@
             </div>
             <button type="submit">CADASTRAR</button>
         </form>
+
     </div>
 </section>
 {% endblock %}

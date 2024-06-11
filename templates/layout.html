@@ -70,7 +70,8 @@
             <h2>Itens no Carrinho</h2>
             <ul id="cartItems">
                 <!-- Aqui serão inseridos os itens do carrinho -->
-                <!-- Iterar sobre os itens do carrinho e exibi-los -->
+                <li id="nome_produto"></li>
+                <li id="preco_produto"></li>
             </ul>
         </div>
 
@@ -94,6 +95,25 @@
         // função para fechar o modal
         function closeModal() {
             document.getElementById("myModal").style.display = "none";
+        }
+
+        function mostraSobreProduto(id_produto){
+        $.ajax({
+            url: "/api/carrinhoProdutos",
+            type: 'GET',
+            success: function(respostaAPI){
+                mostraModal(respostaAPI)
+            },
+            error: function(erroAPI){
+                alert("Erro ao recuperar produtos.")
+            }
+        })
+    }
+
+        function mostraModal(respostaAPI){
+            const produto = respostaAPI;
+            document.getElementById("nome_produto").innerHTML = produto.descricao;
+            document.getElementById("preco_produto").innerHTML = "R$ " + produto.preco
         }
     </script>
 

@@ -141,7 +141,7 @@ body {
   text-align: center;
 }
 
-a{
+.newsletter a{
   border-radius: 10rem;
   padding: 0.5rem;
   margin-top: 5rem;
@@ -151,7 +151,7 @@ a{
   border: 3px solid rgb(255, 255, 255);
 }
 
-a:hover{
+.newsletter a:hover{
   background-color: #C24616;
   cursor: pointer;
   border: 0.3rem dashed rgb(255, 255, 255);
