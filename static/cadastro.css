@@ -57,7 +57,12 @@
     color: #E8D3B6;
     padding: 0.5rem;
     align-self: flex-end;
-    margin-right: 1rem;
     border-radius: 1rem;
     cursor: pointer;
 }
+
+.cadastro-container__form p{
+    margin: 2rem 0 0.5rem 0;
+} 
+
+
