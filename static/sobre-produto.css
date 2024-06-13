@@ -82,3 +82,15 @@ a:hover{
     color: white;
     border: solid 0.2rem rgb(255, 214, 137);
 }
+
+.card-comentario-itens{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+    padding: 1rem;
+    width: 100vw;
+    margin-bottom: 10vh;
+    background-color: #673024;
+    color: #E8D3B6;
+}

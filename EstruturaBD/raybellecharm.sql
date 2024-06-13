@@ -37,7 +37,8 @@ CREATE TABLE tb_carrinho(
 CREATE TABLE tb_comentario(
 	cod_avaliacao INT AUTO_INCREMENT PRIMARY KEY,
 	cpf_cliente VARCHAR (11) NOT NULL,
-    avaliacao VARCHAR (200) NOT NULL
+    avaliacao VARCHAR (200) NOT NULL,
+    cod_prod VARCHAR (200) NOT NULL
 );
 
 CREATE USER 'usuario_raybelle'@'%' IDENTIFIED BY 'raybelle';
@@ -49,6 +50,13 @@ FLUSH PRIVILEGES;
 SELECT * FROM tb_produto p
 INNER JOIN tb_carrinho c
 ON p.cod_prod = c.id_prod;
+
+SELECT p.descricao, p.preco 
+FROM tb_produto p 
+INNER JOIN tb_carrinho c 
+ON p.cod_prod = c.id_prod;
+
+select * from tb_comentario;
 
 INSERT INTO `raybellecharm`.`tb_produto` (`cod_prod`, `nome_prod`, `preco`, `foto`, `descricao`, `categoria`) VALUES ('0', 'anel-ouro', '150.00', '/static/img/produtos-ouro/anel-ouro.jpg', 'Anel Rika', 'ouro');
 INSERT INTO `raybellecharm`.`tb_produto` (`cod_prod`, `nome_prod`, `preco`, `foto`, `descricao`, `categoria`) VALUES ('1', 'anel-ouro2', '350.00', '/static/img/produtos-ouro/anel-ouro2.jpg', 'Anel Vitória', 'ouro');
