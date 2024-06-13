@@ -1,0 +1,42 @@
+{% block css %}
+<link rel="stylesheet" href="/static/inserir-produtos.css">
+{% endblock %}
+
+{% extends "layout.html" %}
+{% block conteudo %}
+<form action="/inserirProduto" method="POST" id="inserir-container">
+    <div class="inserir-container__form__itens">
+        <div class="inserir-container__form__input">
+            <label for="codProduto">Código do Produto:</label>
+            <input type="text" id="codProduto" name="codProduto" required>
+        </div>
+
+        <div class="inserir-container__form__input">
+            <label for="nomeProduto">Nome do Produto:</label>
+            <input type="text" id="nomeProduto" name="nomeProduto" required>
+        </div>
+
+        <div class="inserir-container__form__input">
+            <label for="precoProduto">Preço do Produto:</label>
+            <input type="text" id="precoProduto" name="precoProduto" required>
+        </div>
+
+        <div class="inserir-container__form__input">
+            <label for="fotoProduto">Endereco da foto do Produto:</label>
+            <input type="url" id="fotoProduto" name="fotoProduto" required>
+        </div>
+
+        <div class="inserir-container__form__input">
+            <label for="descricaoProduto">Desrição do Produto (nome que o define):</label>
+            <input type="text" id="descricaoProduto" name="descricaoProduto" required>
+        </div>
+
+        <div class="inserir-container__form__input">
+            <label for="cateoriaProduto">Categoria do Produto:</label>
+            <input type="text" id="categoriaProduto" name="cateoriaProduto" required>
+        </div>
+
+    </div>
+    <button type="submit">CADASTRAR</button>
+</form>
+{% endblock conteudo %}

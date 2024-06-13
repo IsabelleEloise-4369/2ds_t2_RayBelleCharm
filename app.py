@@ -40,7 +40,6 @@ def pagina_cadastro():
         else:
             return "Erro ao cadastrar o usuário."
 
-
 #roteamento da página login
 @app.route("/login", methods=["GET", "POST"])
 #função da página de login
@@ -72,12 +71,14 @@ def pagina_comentario():
             return render_template("comentario-raybelle.html")
         if request.method == 'POST':
             avaliacao = request.form['comentario']
+            idProd = request.form['cod_prod']
+            nomeProd = request.form['nome_prod']
 
             mydb = Conexao.conectar()
             
             mycursor = mydb.cursor()
 
-            comentario = (f"INSERT INTO tb_comentario (cpf_cliente, avaliacao) VALUES ('{session['usuario_logado']['cpf']}', '{avaliacao}')")
+            comentario = (f"INSERT INTO tb_comentario (cpf_cliente, avaliacao, cod_prod) VALUES ('{session['usuario_logado']['cpf']}', '{avaliacao}', {idProd})")
 
             mycursor.execute(comentario)
 
@@ -85,7 +86,8 @@ def pagina_comentario():
 
             mydb.close()
 
-            return render_template("raybelle.html")
+            nomeProd = nomeProd.replace(' ', '+')
+            return redirect(f"/sobreProduto?saibaMais={nomeProd}")
 
     else:
         return redirect("/cadastro")
@@ -101,14 +103,9 @@ def pagina_ouro():
     # Consulta ao banco de dados para obter os produtos da categoria "ouro"
     produtos_ouro = ("SELECT preco, foto, descricao, categoria FROM tb_produto WHERE categoria = 'ouro'")
 
-    comentario = ("SELECT cpf_cliente, avaliacao FROM tb_comentario")
-
     #executar
     mycursor.execute(produtos_ouro)
     resultado = mycursor.fetchall()
-
-    mycursor.execute(comentario)
-    comentarios = mycursor.fetchall()
 
     mydb.close()
 
@@ -122,15 +119,7 @@ def pagina_ouro():
             "categoria":produto[3],
         })
 
-    lista_comentario = []
-
-    for coment in comentarios:
-        lista_comentario.append({
-            "cpf_cliente":coment[0],
-            "avaliacao":coment[1]
-        })
-
-    return render_template("ouro-raybelle.html", lista_produtos = lista_produtos, lista_comentario = lista_comentario)
+    return render_template("ouro-raybelle.html", lista_produtos = lista_produtos)
     
     # return render_template("ouro-raybelle.html", produtos=produtos_ouro)
     
@@ -191,8 +180,12 @@ def pagina_produtos():
     produto = (f"SELECT preco, foto, descricao, categoria, cod_prod FROM tb_produto WHERE descricao = '{nome}'")
 
     mycursor.execute(produto)
-
     resultado = mycursor.fetchone()
+
+    comentarioSelecionado = (f"SELECT * FROM tb_comentario c INNER JOIN tb_produto p ON p.cod_prod = c.cod_prod WHERE descricao = '{nome}' ;")
+
+    mycursor.execute(comentarioSelecionado)
+    comentarios = mycursor.fetchall()
     
     mydb.close()
     
@@ -203,8 +196,15 @@ def pagina_produtos():
             "categoria":resultado[3],
             "cod_prod":resultado[4]
     }
+
+    lista_comentario = []
+    for coment in comentarios:
+        lista_comentario.append({
+            "cpf_cliente":coment[0],
+            "avaliacao":coment[1]
+    })
     
-    return render_template("sobre-produtos-raybelle.html", dicionario_produto = dicionario_produto)
+    return render_template("sobre-produtos-raybelle.html", dicionario_produto = dicionario_produto, lista_comentario = lista_comentario)
 
 # roteamento
 @app.route("/carrinho", methods=["GET", "POST"])
@@ -244,5 +244,31 @@ def pagina_carrinhoProdutos():
 
     # Retorna os itens do carrinho como JSON
     return jsonify(itens_carrinho)
+
+@app.route("/inserirProduto", methods=["GET","POST"])
+def pagina_inserirProdutos():
+    if request.method == 'GET':
+        return render_template("inserir-produtos-raybelle.html")
+    if request.method == 'POST':
+        codProduto = request.form['codProduto']
+        nomeProduto = request.form['nomeProduto']
+        precoProduto = request.form['precoProduto']
+        fotoProduto = request.form['fotoProduto']
+        descricaoProduto = request.form['descricaoProduto']
+        categoriaProduto= request.form['categoriaProduto']
+
+        # Conectar ao banco de dados para obter os itens do carrinho
+        mydb = Conexao.conectar()
+        mycursor = mydb.cursor()
+
+        inserir = (f"INSERT INTO tb_produto (cod_prod, nome_prod, preco, foto, descricao, categoria) VALUES ({codProduto}, {nomeProduto}, {precoProduto}, {fotoProduto}, {descricaoProduto}, {categoriaProduto})")
+
+        mycursor.execute(inserir)
+
+        mydb.commit()
+
+        mydb.close()
+
+        return redirect('/')
 
 app.run(debug=True)
