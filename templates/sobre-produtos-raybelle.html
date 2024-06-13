@@ -18,8 +18,26 @@
             </form>
 
             <a href="/ouro">Voltar para á página Ouro</a>
+
+            <form action="/comentario" method="POST" id="container-comentario">
+                <label for="comentario">Escreva abaixo um comentário sobre a joia que mudou a sua vida:</label>
+                <textarea id="comentario" cols="40" rows="5" name="comentario"></textarea>
+                <input type="hidden" value="{{dicionario_produto['cod_prod']}}" name="cod_prod">
+                <input type="hidden" name="nome_prod" value="{{dicionario_produto['descricao']}}">
+                <button type="submit" id="btnEnviarComent" name="btnEnviarComent">Enviar Comentário</button>
+            </form>
+
         </div>    
     </div>
+
+    <!-- colocar na págna sobre produtos para aparecer o comentário sobre um produto específico -->
+    <div class="card-comentario-itens">
+        {% for comentarios in lista_comentario %}
+            <h2>{{ comentarios['avaliacao'] }}</h2>
+            <br>
+        {% endfor %}  
+    </div>
+  
 </section>
 
 {% endblock %}

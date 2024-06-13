@@ -1,0 +1,45 @@
+
+#inserir-container{
+    width: 60%;
+    height: 70%;
+    color: #CD8D00;
+    margin-top: 40vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15vh;
+}
+
+.inserir-container__form__itens{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 0;
+    column-gap: 3rem;
+    margin-top: 1rem;
+}
+
+.inserir-container__form__itens .inserir-container__form__input{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.inserir-container__form__itens .inserir-container__form__input input{
+    background-color: #CD8D00;
+    border: 0.2rem solid #CD8D00;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+}
+
+#inserir-container button{
+    background-color: #CD8D00;
+    border: 0.2rem solid #CD8D00;
+    color: #E8D3B6;
+    padding: 0.5rem;
+    align-self: flex-end;
+    margin-right: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
