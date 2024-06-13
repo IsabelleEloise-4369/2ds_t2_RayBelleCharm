@@ -63,14 +63,23 @@
     <!-- A modal -->
     <div id="myModal" class="modal">
 
+    
         <!-- Conteúdo da modal -->
         <div class="modal-content">
-            <!-- o x que aparece para fechar o modal -->
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Itens no Carrinho</h2>
+
+             <!-- o x que aparece para fechar o modal -->
+             <span class="close" onclick="closeModal()">&times;</span>
+
+            <h2>Itens do Carrinho 🛒</h2>
+          
             <ul id="cartItems">
                 <!-- Aqui serão inseridos os itens do carrinho -->
             </ul>
+
+            <div class="limpar">
+                <button id="btnLimpar" type="submit">Limpar Carrinhos de compras</button>
+            </div>
+            
         </div>
 
     </div>
@@ -103,7 +112,7 @@
                     // Adiciona os novos itens do carrinho
                     data.forEach(item => {
                         const li = document.createElement("li");
-                        li.textContent = `${item[0]} - ${item[1]}`;
+                        li.textContent = `${item[0]}  -  R$ ${item[1]}`;
                         cartItems.appendChild(li);
                     });
                 })
@@ -111,12 +120,21 @@
                 .catch(error => {
                     console.error('Erro ao carregar itens do carrinho:', error);
                 });
+
         }
     
         // função para fechar o modal
         function closeModal() {
             document.getElementById("myModal").style.display = "none";
         }
+
+        const btnLimpar = document.querySelector('#btnLimpar');
+
+        btnLimpar.addEventListener('click', () => {
+
+            document.querySelector('#cartItems').value = '';
+            
+        });
 
     </script>
 

@@ -242,6 +242,7 @@ def pagina_carrinhoProdutos():
 
     mydb.close()
 
+    
     # Retorna os itens do carrinho como JSON
     return jsonify(itens_carrinho)
 

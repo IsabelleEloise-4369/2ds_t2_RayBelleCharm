@@ -97,6 +97,89 @@ body{
 /* ************************************************************************************************************ */
 
 
+
+/* ****************************** padronização/ estilização MODAL ************************************ */
+/* Estilos para a página modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-titulo{
+    text-align: center;
+}
+
+.modal-content {
+    background-color: #E8D3B6;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+   
+}
+
+.modal-content h2{
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.modal-content ul{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    gap: 1rem;
+}
+
+.limpar{
+    width: 100%;
+    display: flex;
+    margin-top: 1.5rem;
+    justify-content: flex-end;
+}
+
+.limpar button{
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: 0.25rem solid #c24716c0;
+    background-color: #ffad8cc9;
+}
+
+.limpar button:hover{
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: 0.25rem solid #ffb192d4;
+    background-color: #c73800c9;
+    
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* padronização do x que aparece para fechar o modal  */
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+} 
+
+/* ************************************************************************************************************ */
+
 /* ****************************** padronização/ estilização FRETE ************************************ */
 
 .frete{
@@ -139,39 +222,3 @@ footer{
     align-items: center;
 }
 
-/* ****************************** padronização/ estilização MODAL ************************************ */
-/* Estilos para a página modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content {
-    background-color: #E8D3B6;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-/* padronização do x que aparece para fechar o modal  */
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-} 
