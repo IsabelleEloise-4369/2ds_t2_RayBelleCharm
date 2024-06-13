@@ -70,8 +70,6 @@
             <h2>Itens no Carrinho</h2>
             <ul id="cartItems">
                 <!-- Aqui serão inseridos os itens do carrinho -->
-                <li id="nome_produto"></li>
-                <li id="preco_produto"></li>
             </ul>
         </div>
 
@@ -87,9 +85,32 @@
 
     <!-- Script para abrir e fechar a modal -->
     <script>
-        // função para aparecer o modal
+
+        // Função para abrir o modal e carregar os itens do carrinho
         function openModal() {
             document.getElementById("myModal").style.display = "block";
+            
+            // Realiza uma requisição/solicitação AJAX para obter os itens do carrinho
+            fetch('/api/carrinhoProdutos')
+
+                // Converte a resposta da solicitação para o formato JSON.
+                // o .then é um método próprio do jascript
+                .then(response => response.json())
+                .then(data => {
+                    const cartItems = document.getElementById("cartItems");
+                    cartItems.innerHTML = ""; // Limpa os itens anteriores do carrinho
+
+                    // Adiciona os novos itens do carrinho
+                    data.forEach(item => {
+                        const li = document.createElement("li");
+                        li.textContent = `${item[0]} - ${item[1]}`;
+                        cartItems.appendChild(li);
+                    });
+                })
+                // .catch é um método do javascript , Captura e trata quaisquer erros que possam ocorrer durante a solicitação AJAX, registrando-os no console do navegador para depuração
+                .catch(error => {
+                    console.error('Erro ao carregar itens do carrinho:', error);
+                });
         }
     
         // função para fechar o modal
@@ -97,24 +118,6 @@
             document.getElementById("myModal").style.display = "none";
         }
 
-        function mostraSobreProduto(id_produto){
-        $.ajax({
-            url: "/api/carrinhoProdutos",
-            type: 'GET',
-            success: function(respostaAPI){
-                mostraModal(respostaAPI)
-            },
-            error: function(erroAPI){
-                alert("Erro ao recuperar produtos.")
-            }
-        })
-    }
-
-        function mostraModal(respostaAPI){
-            const produto = respostaAPI;
-            document.getElementById("nome_produto").innerHTML = produto.descricao;
-            document.getElementById("preco_produto").innerHTML = "R$ " + produto.preco
-        }
     </script>
 
 </body>

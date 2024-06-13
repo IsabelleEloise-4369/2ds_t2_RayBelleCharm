@@ -57,7 +57,7 @@ def pagina_login():
             session['usuario_logado'] = {'email':usuario.email,
                                          'senha':usuario.senha,
                                          'cpf':usuario.cpf}
-            return redirect('/')
+            return redirect('/comentario')
         else:
             session.clear()
             return 'Email ou senha incorretos.'
@@ -242,7 +242,7 @@ def pagina_carrinhoProdutos():
 
     mydb.close()
 
-    # Renderize a página do carrinho e passe os itens do carrinho como contexto
-    return render_template('layout.html', jsonify(itens_carrinho))
+    # Retorna os itens do carrinho como JSON
+    return jsonify(itens_carrinho)
 
 app.run(debug=True)

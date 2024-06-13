@@ -1,10 +1,9 @@
 
 
 .cadastro-container__form{
-    background-color: #cd8c00a6;
-    width: 50%;
-    height: 60%;
-    color: #E8D3B6;
+    width: 60%;
+    height: 70%;
+    color: #CD8D00;
     margin-top: 30vh;
     margin-left: auto;
     margin-right: auto;
@@ -26,7 +25,7 @@
     justify-content: center;
     font-size: 1.2rem;
     text-align: center;
-    color: #E8D3B6;
+    color: #CD8D00;
     padding-top: 1rem;
     gap: 1rem;
 }
