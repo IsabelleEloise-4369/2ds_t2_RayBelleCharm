@@ -56,7 +56,7 @@ def pagina_login():
             session['usuario_logado'] = {'email':usuario.email,
                                          'senha':usuario.senha,
                                          'cpf':usuario.cpf}
-            return redirect('/comentario')
+            return redirect('/')
         else:
             session.clear()
             return 'Email ou senha incorretos.'
@@ -200,8 +200,8 @@ def pagina_produtos():
     lista_comentario = []
     for coment in comentarios:
         lista_comentario.append({
-            "cpf_cliente":coment[0],
-            "avaliacao":coment[1]
+            "cpf_cliente":coment[1],
+            "avaliacao":coment[2]
     })
     
     return render_template("sobre-produtos-raybelle.html", dicionario_produto = dicionario_produto, lista_comentario = lista_comentario)
@@ -262,7 +262,7 @@ def pagina_inserirProdutos():
         mydb = Conexao.conectar()
         mycursor = mydb.cursor()
 
-        inserir = (f"INSERT INTO tb_produto (cod_prod, nome_prod, preco, foto, descricao, categoria) VALUES ({codProduto}, {nomeProduto}, {precoProduto}, {fotoProduto}, {descricaoProduto}, {categoriaProduto})")
+        inserir = (f"INSERT INTO tb_produto (cod_prod, nome_prod, preco, foto, descricao, categoria) VALUES ('{codProduto}', '{nomeProduto}', '{precoProduto}', '{fotoProduto}', '{descricaoProduto}', '{categoriaProduto}')")
 
         mycursor.execute(inserir)
 
