@@ -1,12 +1,16 @@
 
 #inserir-container{
-    width: 60%;
+    width: 80%;
     height: 70%;
     color: #CD8D00;
-    margin-top: 40vh;
+    margin-top: 20vh;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .inserir-container__form__itens{
@@ -16,6 +20,8 @@
     margin-bottom: 0;
     column-gap: 3rem;
     margin-top: 1rem;
+    width: 600px;
+    justify-items: start
 }
 
 .inserir-container__form__itens .inserir-container__form__input{
@@ -37,9 +43,8 @@
     border: 0.2rem solid #CD8D00;
     color: #E8D3B6;
     padding: 0.5rem;
-    align-self: flex-end;
     margin-right: 1rem;
     border-radius: 1rem;
     cursor: pointer;
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
