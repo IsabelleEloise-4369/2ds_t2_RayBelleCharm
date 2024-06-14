@@ -23,6 +23,7 @@
     align-items: flex-start;
     justify-content: space-between;
     flex-direction: column;
+    margin: 1rem;
 }
 
 .inserir-container__form__itens .inserir-container__form__input input{

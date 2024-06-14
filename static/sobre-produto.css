@@ -48,7 +48,7 @@ button{
 }
 
 button:hover{
-    background-color: #ff5e1f;
+    background-color: #ca9444;
     cursor: pointer;
     border: 0.2rem dashed rgb(255, 255, 255);
     font-size: 1rem;
@@ -73,6 +73,12 @@ a:hover{
     width: 30rem;
     gap: 1rem;
 }
+
+#container-comentario label{
+    margin-top: 3.5rem;
+    color: #ffe1b8;
+}
+
 #comentario{
     margin-bottom: 1rem;
     display: flex;
